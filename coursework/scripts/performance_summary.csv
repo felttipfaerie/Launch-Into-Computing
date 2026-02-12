@@ -1,0 +1,17 @@
+timestamp,module,function,array_size,target,index,time_us
+
+2026-02-12 14:45:09.316389,binary_search_bisect.py,binary_search_bisect,100,50,49,18.8000
+2026-02-12 14:45:09.316472,binary_search_bisect.py,binary_search_bisect,1000,500,499,2.1000
+2026-02-12 14:45:09.316661,binary_search_bisect.py,binary_search_bisect,10000,5000,4999,1.7000
+2026-02-12 14:45:09.317699,binary_search_bisect.py,binary_search_bisect,100000,50000,49999,1.6000
+2026-02-12 14:45:09.328172,binary_search_bisect.py,binary_search_bisect,1000000,500000,499999,9.0000
+2026-02-12 14:45:09.335155,binary_search_iterative.py,binary_search_iterative,100,50,49,6.3000
+2026-02-12 14:45:09.335275,binary_search_iterative.py,binary_search_iterative,1000,500,499,5.2000
+2026-02-12 14:45:09.335491,binary_search_iterative.py,binary_search_iterative,10000,5000,4999,2.1000
+2026-02-12 14:45:09.336965,binary_search_iterative.py,binary_search_iterative,100000,50000,49999,3.8000
+2026-02-12 14:45:09.348423,binary_search_iterative.py,binary_search_iterative,1000000,500000,499999,7.8000
+2026-02-12 14:45:09.355814,linear-search.py,linearSearch,100,50,49,11.5000
+2026-02-12 14:45:09.355912,linear-search.py,linearSearch,1000,500,499,13.5000
+2026-02-12 14:45:09.356147,linear-search.py,linearSearch,10000,5000,4999,119.0000
+2026-02-12 14:45:09.358270,linear-search.py,linearSearch,100000,50000,49999,1300.9000
+2026-02-12 14:45:09.382662,linear-search.py,linearSearch,1000000,500000,499999,11922.1000
