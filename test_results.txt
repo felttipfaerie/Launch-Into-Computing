@@ -1,9 +1,0 @@
-
-================================================================================
-Test Run: 2026-02-12 13:39:42
-================================================================================
-Array Size:        100 | Target:         50 | Found at Index:         49 | Time:     2.3842 탎
-Array Size:       1000 | Target:        500 | Found at Index:        499 | Time:     2.1458 탎
-Array Size:      10000 | Target:       5000 | Found at Index:       4999 | Time:     0.9537 탎
-Array Size:     100000 | Target:      50000 | Found at Index:      49999 | Time:     2.3842 탎
-Array Size:    1000000 | Target:     500000 | Found at Index:     499999 | Time:     3.5763 탎
