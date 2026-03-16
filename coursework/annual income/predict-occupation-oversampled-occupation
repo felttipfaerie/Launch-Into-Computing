@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -13,7 +15,9 @@ from sklearn.utils import resample
 # SETTINGS
 # ==========================================
 
-file_path = r"C:\Users\elmak\Documents\Launch Into Computing\coursework\annual income\adult.data"
+file_path = Path(__file__).parent / "adult.data"
+output_folder = Path(__file__).parent / "output"
+output_folder.mkdir(parents=True, exist_ok=True)
 
 target_column = "occupation"
 
@@ -22,8 +26,6 @@ columns = [
     "marital_status", "occupation", "relationship", "race", "sex",
     "capital_gain", "capital_loss", "hours_per_week", "native_country", "income"
 ]
-
-output_folder = r"C:\Users\elmak\Documents\Launch Into Computing\coursework\annual income"
 
 
 # ==========================================
@@ -149,7 +151,6 @@ model = RandomForestClassifier(
 
 model.fit(X_train_bal, y_train_bal)
 
-# X_test already does NOT contain occupation
 y_pred = model.predict(X_test)
 
 
@@ -194,7 +195,7 @@ plt.xlabel("Predicted Occupation")
 plt.ylabel("Actual Occupation")
 plt.tight_layout()
 
-confusion_path = f"{output_folder}\\occupation_matrix_oversampled_occupation.png"
+confusion_path = output_folder / "occupation_matrix_oversampled_occupation.png"
 plt.savefig(confusion_path, dpi=300)
 plt.show()
 plt.close()
@@ -210,7 +211,7 @@ results_df = X_test.copy()
 results_df["actual_occupation"] = target_encoder.inverse_transform(y_test)
 results_df["predicted_occupation"] = target_encoder.inverse_transform(y_pred)
 
-prediction_path = f"{output_folder}\\occupation_predictions_oversampled.csv"
+prediction_path = output_folder / "occupation_predictions_oversampled.csv"
 results_df.to_csv(prediction_path, index=False)
 
 print("Predictions saved:", prediction_path)
@@ -266,7 +267,7 @@ plt.ylim(0, 1)
 plt.legend(title="Sample Size")
 plt.tight_layout()
 
-occupation_path = f"{output_folder}\\occupation_accuracy_oversampled_occupation.png"
+occupation_path = output_folder / "occupation_accuracy_oversampled_occupation.png"
 plt.savefig(occupation_path, dpi=300)
 plt.show()
 plt.close()

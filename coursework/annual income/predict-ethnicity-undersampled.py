@@ -14,7 +14,9 @@ from sklearn.metrics import confusion_matrix, accuracy_score
 # LOAD DATA
 # --------------------------------------------------
 
-file_path = r"C:\Users\elmak\Documents\Launch Into Computing\coursework\annual income\adult.data"
+from pathlib import Path
+
+file_path = Path(__file__).parent / "adult.data"
 
 columns = [
     "age","workclass","fnlwgt","education","education_num",
