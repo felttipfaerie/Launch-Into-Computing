@@ -1,0 +1,375 @@
+"Correction notice - Table 13, August 2025",source_file,Unnamed: 0,Unnamed: 1,Unnamed: 2,Marriages in England and Wales: 2019 data tables,Marriages in England and Wales: 2020 data tables,Marriages in England and Wales: 2023 data tables
+"We have corrected an error in table 13 of this dataset. In the previous version, although the total number of males and females aged 16 and over converting their CP to marriage were correct, the breakdown by age for 2021 and 2022 only included one partner from each couple when it should have included both partners. This happened because of human error.
+
+We apologise for any inconvenience caused.",correctionpub2025forchangestot13wholefile.xlsx,,,,,,
+,marriages2018workbookfortracker.xlsx,,Contents,"Marriages in England and Wales, 2018",,,
+,marriages2018workbookfortracker.xlsx,,,,,,
+,marriages2018workbookfortracker.xlsx,,Information,Information on marriage statistics,,,
+,marriages2018workbookfortracker.xlsx,,Terms and conditions,Terms and conditions,,,
+,marriages2018workbookfortracker.xlsx,,Table 1,"Number of marriages by type of ceremony and denomination, 1837 to 2018",,,
+,marriages2018workbookfortracker.xlsx,,Table 2,"Number of marriages by previous marital status, 1845 to 2018",,,
+,marriages2018workbookfortracker.xlsx,,Table 3,"Number of men marrying by age and previous marital status, 1846 to 2018",,,
+,marriages2018workbookfortracker.xlsx,,Table 4,"Number of women marrying by age and previous marital status, 1846 to 2018",,,
+,marriages2018workbookfortracker.xlsx,,Table 5,"Median age at marriage: sex and previous marital status, 1846 to 2018",,,
+,marriages2018workbookfortracker.xlsx,,Table 6,"Average (mean) age of men marrying: previous marital status, 1846 to 2018",,,
+,marriages2018workbookfortracker.xlsx,,Table 7,"Average (mean) age of women marrying: previous marital status, 1846 to 2018",,,
+,marriages2018workbookfortracker.xlsx,,Table 8,"Summary of marriage rates, 1862 to 2018",,,
+,marriages2018workbookfortracker.xlsx,,Table 9a,"Marriages of opposite-sex couples: Number of men and women marrying and marriage rates by age and sex, 1971 to 2018",,,
+,marriages2018workbookfortracker.xlsx,,Table 9b,"Marriages of same-sex couples: Number of men and women marrying and marriage rates by age and sex, 2014 to 2018",,,
+,marriages2018workbookfortracker.xlsx,,Table 10,"Number of marriages by day and month of occurrence, 2018",,,
+,marriages2018workbookfortracker.xlsx,,Table 11,Percentage of men and women cohabiting prior to marriage: Type of ceremony and age 1994 to 2018,,,
+,marriages2018workbookfortracker.xlsx,,Table 12,"Proportions of men and women who had ever married by certain ages, for birth cohorts, 1900 to 2002",,,
+,marriages2018workbookfortracker.xlsx,,Table 12 Interpretation,Interpreting table 12; proportions of men and women who ever married by certain ages and birth cohorts,,,
+,marriages2018workbookfortracker.xlsx,,Table 13,"Proportions of men and women who had ever remarried by certain ages, for birth cohorts, 1925 to 1998",,,
+,marriages2018workbookfortracker.xlsx,,Table 13 Interpretation,Interpreting table 13; proportions of men and women who ever remarried by certain ages and birth cohorts,,,
+,marriages2018workbookfortracker.xlsx,,Table 14,"Marriages by area of occurrence, 2018",,,
+,marriages2018workbookfortracker.xlsx,,Table 15,"Number of marriages by date, 1996 to 2018",,,
+,marriages2018workbookfortracker.xlsx,,Table 16,"Number of conversions of civil partnerships and number of men and women converting by age and sex, 2014 to 2018",,,
+,marriages2018workbookfortracker.xlsx,,Related publications,Links to further marriage statistics and related publications,,,
+,marriages2019workbook.xlsx,,,,This spreadsheet contains the data tables published for Marriages in England and Wales: 2019,,
+,marriages2019workbook.xlsx,,,,Marriages 2019 publication,,
+,marriages2019workbook.xlsx,,,,Information on marriages statistics,,
+,marriages2019workbook.xlsx,,,,"Marriage statistics are derived from information recorded when marriages are registered as part of civil registration, a legal requirement. ",,
+,marriages2019workbook.xlsx,,,,Figures represent civil and religious marriages that take place in England and Wales only. ,,
+,marriages2019workbook.xlsx,,,,Marriages to residents of England and Wales that took place abroad are not included while marriages that took place in England and Wales to non-residents are included.,,
+,marriages2019workbook.xlsx,,,,Marriages of same-sex couples first took place on 29 March 2014. Figures for 2014 represent a part-year only.,,
+,marriages2019workbook.xlsx,,,,"Same-sex couples in a civil partnership have been able to convert their existing civil partnership into a marriage, if they so desired, from 10 December 2014; these are not included in the marriage statistics but are reported separately in Table 13.",,
+,marriages2019workbook.xlsx,,,,Publication dates,,
+,marriages2019workbook.xlsx,,,,Date of release: 19 May 2022,,
+,marriages2019workbook.xlsx,,,,Date of next release: To be announced,,
+,marriages2019workbook.xlsx,,,,Explorable datasets,,
+,marriages2019workbook.xlsx,,,,More detailed figures for marriages of opposite-sex couples and marriages of same-sex couples are available on NOMIS.,,
+,marriages2019workbook.xlsx,,,,NOMIS data for marriages in England and Wales,,
+,marriages2019workbook.xlsx,,,,Quality and methodology,,
+,marriages2019workbook.xlsx,,,,"The Marriages Quality and Methodology Information document contains important information on the strengths and limitations of the data, the quality of the output: including the accuracy of the data, how it compares with related data, uses and users and how the output was created",,
+,marriages2019workbook.xlsx,,,,Marriages in England and Wales QMI,,
+,marriages2019workbook.xlsx,,,,"Our user guide to marriage statistics provides further information on data quality, legislation and procedures relating to marriages. ",,
+,marriages2019workbook.xlsx,,,,User guide to marriages statistics,,
+,marriages2019workbook.xlsx,,,,Population estimates used to calculate marriage rates,,
+,marriages2019workbook.xlsx,,,,The latest population estimates by marital status at the time of this release have been used to calculate marriage rates.,,
+,marriages2019workbook.xlsx,,,,"Population estimates by marital status and living arrangements, England and Wales",,
+,marriages2019workbook.xlsx,,,,Population estimates by marital status and living arrangements QMI,,
+,marriages2019workbook.xlsx,,,,Units and notes,,
+,marriages2019workbook.xlsx,,,,"Some cells in the tables refer to notes which can be found in the notes worksheet. Note markers are presented in square brackets, for example: [note 1].",,
+,marriages2019workbook.xlsx,,,,"Some column headings give units, when this is the case the units are presented in round brackets to differentiate them from note markers.  ",,
+,marriages2019workbook.xlsx,,,,Symbols and conventions,,
+,marriages2019workbook.xlsx,,,,Symbols used are:,,
+,marriages2019workbook.xlsx,,,,0 denotes nil,,
+,marriages2019workbook.xlsx,,,,[low] denotes different from a true zero,,
+,marriages2019workbook.xlsx,,,,[u] denotes low reliability,,
+,marriages2019workbook.xlsx,,,,[x] denotes not available,,
+,marriages2019workbook.xlsx,,,,[z] denotes not applicable,,
+,marriages2019workbook.xlsx,,,,"Rates are not calculated where there are fewer than 3 marriages in a cell, denoted by [x]. It is ONS practice not to calculate rates where there are fewer than 3 marriages in a cell, as rates based on such low numbers are susceptible to inaccurate interpretation. Rates which are based on between 3 and 19 marriages are displayed in tables but are denoted by [u] as a warning to the user that their reliability as a measure may be affected by the small number of events. 	",,
+,marriages2019workbook.xlsx,,,,Further Information and Enquiries,,
+,marriages2019workbook.xlsx,,,,"Special extracts and tabulations of marriage data for England and Wales are available to order for a charge (subject to legal frameworks, disclosure control, resources and the ONS charging policy, where appropriate).",,
+,marriages2019workbook.xlsx,,,,ONS charging policy,,
+,marriages2019workbook.xlsx,,,,"We welcome feedback from users, please contact Vital Statistics Outputs Branch by email",,
+,marriages2019workbook.xlsx,,,,Health.Data@ons.gov.uk,,
+,marriages2019workbook.xlsx,,,,or telephone: +44 (0)1329 444110,,
+,marriages2019workbook.xlsx,,,,User Feedback,,
+,marriages2019workbook.xlsx,,,,"We are constantly trying to improve our service and would like to hear your feedback on how we are doing.
+Please click an option below to email us with you thoughts and comments.",,
+,marriages2019workbook.xlsx,,,,"This met my needs, please produce it next year",,
+,marriages2019workbook.xlsx,,,,I need something slightly different (please specify),,
+,marriages2019workbook.xlsx,,,,This is not what I need at all (please specify),,
+,marriages2019workbook.xlsx,,,,A National Statistics publication,,
+,marriages2019workbook.xlsx,,,,National Statistics are produced to high professional standards set out in the Code of Practice for Statistics. They are produced free from any political interference.,,
+,marriages2019workbook.xlsx,,,,Code of practice,,
+,marriages2019workbook.xlsx,,,,"The United Kingdom Statistics Authority has designated these statistics as National Statistics, in accordance with the Statistics and Registration Service Act 2007 and signifying compliance with the Code of Practice for Statistics. ",,
+,marriages2019workbook.xlsx,,,,"Designation can be broadly interpreted to mean that the statistics meet identified user needs, are well explained and readily accessible, are produced according to sound methods, and are managed impartially and objectively in the public interest. ",,
+,marriages2019workbook.xlsx,,,,Once statistics have been designated as National Statistics it is a statutory requirement that the Code of Practice shall continue to be observed.,,
+,marriages2019workbook.xlsx,,,,Copyright and reproduction ,,
+,marriages2019workbook.xlsx,,,,© Crown copyright 2022,,
+,marriages2019workbook.xlsx,,,,"You may re-use this document/publication (not including logos) free of charge in any format or medium, under the terms of the Open Government Licence. Users should include a source accreditation to ONS - Source: Office for National Statistics licensed under the Open Government Licence.",,
+,marriages2019workbook.xlsx,,,,View licence,,
+,marriages2019workbook.xlsx,,,,"Or write to the Information Policy Team, The National Archives, Kew, Richmond, Surrey, TW9 4DU.",,
+,marriages2019workbook.xlsx,,,,Where we have identified any third party copyright information you will need to obtain permission from the copyright holders concerned.,,
+,marriages2019workbook.xlsx,,,,This document/publication is also available on our website,,
+,marriages2019workbook.xlsx,,,,ONS website,,
+,marriages2019workbook.xlsx,,,,Related publications,,
+,marriages2019workbook.xlsx,,,,"More detailed marriage statistics are available as an explorable dataset on NOMIS for the years 2001 to 2018. This dataset provides statistics on opposite-sex marriages which took place in England and Wales, broken down by age group, marital status, ceremony, area of occurrence. Data for same-sex marriages are also available as an explorable dataset on NOMIS for the years 2014 to 2018.",,
+,marriages2019workbook.xlsx,,,,NOMIS marriage statistics for opposite-sex couples,,
+,marriages2019workbook.xlsx,,,,"Annual divorce numbers and rates, by duration of marriage, sex and to whom granted and reason.",,
+,marriages2019workbook.xlsx,,,,Divorce statistics in England and Wales,,
+,marriages2019workbook.xlsx,,,,A short article on older people in England and Wales who are getting married and divorced in greater numbers using data to 2014.,,
+,marriages2019workbook.xlsx,,,,Marriage and divorce on the rise at 65 and over,,
+,marriages2019workbook.xlsx,,,,"Annual statistics on formations and dissolutions of civil partnerships analysed by the sex, age, and previous marital status of the couples and the place of registration. ",,
+,marriages2019workbook.xlsx,,,,Civil Partnerships in England and Wales statistical bulletin,,
+,marriages2019workbook.xlsx,,,,"Summary marriage, divorce and civil partnership statistics for the United Kingdom and its constituent countries.",,
+,marriages2019workbook.xlsx,,,,"Vital statistics in the UK: births, deaths and marriages",,
+,marriages2019workbook.xlsx,,,,Annual estimates of population by legal marital status and cohabitation status by age and sex for England and Wales.,,
+,marriages2019workbook.xlsx,,,,Population estimates by marital status and living arrangements,,
+,marriages2019workbook.xlsx,,,,An article examining some of the long-term trends in marriage and relationships.,,
+,marriages2019workbook.xlsx,,,,Married by 30? You're now in the minority,,
+,marriages2019workbook.xlsx,,,,How wedding dates have changed through the years.,,
+,marriages2019workbook.xlsx,,,,Let's get married. Ok - when?,,
+,marriages2019workbook.xlsx,,,,Explore how your wedding date compares with others.,,
+,marriages2019workbook.xlsx,,,,Save the date,,
+,marriagesworkbook2016forpublication.xls,,Contents,"Marriages in England and Wales, 2016",,,
+,marriagesworkbook2016forpublication.xls,,,,,,
+,marriagesworkbook2016forpublication.xls,,Information,Information on marriage statistics,,,
+,marriagesworkbook2016forpublication.xls,,Terms and conditions,Terms and conditions,,,
+,marriagesworkbook2016forpublication.xls,,Table 1,"Number of marriages by type of ceremony and denomination, 1837 to 2016",,,
+,marriagesworkbook2016forpublication.xls,,Table 2,"Number of marriages by previous marital status, 1845 to 2016",,,
+,marriagesworkbook2016forpublication.xls,,Table 3,"Number of men marrying by age and previous marital status, 1846 to 2016",,,
+,marriagesworkbook2016forpublication.xls,,Table 4,"Number of women marrying by age and previous marital status, 1846 to 2016",,,
+,marriagesworkbook2016forpublication.xls,,Table 5,"Median age at marriage: sex and previous marital status, 1846 to 2016",,,
+,marriagesworkbook2016forpublication.xls,,Table 6,"Average (mean) age of men marrying: previous marital status, 1846 to 2016",,,
+,marriagesworkbook2016forpublication.xls,,Table 7,"Average (mean) age of women marrying: previous marital status, 1846 to 2016",,,
+,marriagesworkbook2016forpublication.xls,,Table 8,"Summary of marriage rates, 1862 to 2016",,,
+,marriagesworkbook2016forpublication.xls,,Table 9a,"Marriages of opposite-sex couples: Number of men and women marrying and marriage rates by age and sex, 1971 to 2016",,,
+,marriagesworkbook2016forpublication.xls,,Table 9b,"Marriages of same-sex couples: Number of men and women marrying and marriage rates by age and sex, 2014 to 2016",,,
+,marriagesworkbook2016forpublication.xls,,Table 10,"Number of marriages by day and month of occurrence, 2016",,,
+,marriagesworkbook2016forpublication.xls,,Table 11,Percentage of men and women cohabiting prior to marriage: Type of ceremony and age 1994 to 2016,,,
+,marriagesworkbook2016forpublication.xls,,Table 12,"Proportions of men and women who had ever married by certain ages, for birth cohorts, 1900 to 2000",,,
+,marriagesworkbook2016forpublication.xls,,Table 12 Interpretation,Interpreting table 12; proportions of men and women who ever married by certain ages and birth cohorts,,,
+,marriagesworkbook2016forpublication.xls,,Table 13,"Proportions of men and women who had ever remarried by certain ages, for birth cohorts, 1925 to 1996",,,
+,marriagesworkbook2016forpublication.xls,,Table 13 Interpretation,Interpreting table 13; proportions of men and women who ever remarried by certain ages and birth cohorts,,,
+,marriagesworkbook2016forpublication.xls,,Table 14,"Marriages by area of occurrence, 2016",,,
+,marriagesworkbook2016forpublication.xls,,Table 15,"Number of marriages by date, 1996 to 2016",,,
+,marriagesworkbook2016forpublication.xls,,Related publications,Links to further marriage statistics and related publications,,,
+,marriagesworkbook2017forpublication.xlsx,,Contents,"Marriages in England and Wales, 2017",,,
+,marriagesworkbook2017forpublication.xlsx,,,,,,
+,marriagesworkbook2017forpublication.xlsx,,Information,Information on marriage statistics,,,
+,marriagesworkbook2017forpublication.xlsx,,Terms and conditions,Terms and conditions,,,
+,marriagesworkbook2017forpublication.xlsx,,Table 1,"Number of marriages by type of ceremony and denomination, 1837 to 2017",,,
+,marriagesworkbook2017forpublication.xlsx,,Table 2,"Number of marriages by previous marital status, 1845 to 2017",,,
+,marriagesworkbook2017forpublication.xlsx,,Table 3,"Number of men marrying by age and previous marital status, 1846 to 2017",,,
+,marriagesworkbook2017forpublication.xlsx,,Table 4,"Number of women marrying by age and previous marital status, 1846 to 2017",,,
+,marriagesworkbook2017forpublication.xlsx,,Table 5,"Median age at marriage: sex and previous marital status, 1846 to 2017",,,
+,marriagesworkbook2017forpublication.xlsx,,Table 6,"Average (mean) age of men marrying: previous marital status, 1846 to 2017",,,
+,marriagesworkbook2017forpublication.xlsx,,Table 7,"Average (mean) age of women marrying: previous marital status, 1846 to 2017",,,
+,marriagesworkbook2017forpublication.xlsx,,Table 8,"Summary of marriage rates, 1862 to 2017",,,
+,marriagesworkbook2017forpublication.xlsx,,Table 9a,"Marriages of opposite-sex couples: Number of men and women marrying and marriage rates by age and sex, 1971 to 2017",,,
+,marriagesworkbook2017forpublication.xlsx,,Table 9b,"Marriages of same-sex couples: Number of men and women marrying and marriage rates by age and sex, 2014 to 2017",,,
+,marriagesworkbook2017forpublication.xlsx,,Table 10,"Number of marriages by day and month of occurrence, 2017",,,
+,marriagesworkbook2017forpublication.xlsx,,Table 11,Percentage of men and women cohabiting prior to marriage: Type of ceremony and age 1994 to 2017,,,
+,marriagesworkbook2017forpublication.xlsx,,Table 12,"Proportions of men and women who had ever married by certain ages, for birth cohorts, 1900 to 2001",,,
+,marriagesworkbook2017forpublication.xlsx,,Table 12 Interpretation,Interpreting table 12; proportions of men and women who ever married by certain ages and birth cohorts,,,
+,marriagesworkbook2017forpublication.xlsx,,Table 13,"Proportions of men and women who had ever remarried by certain ages, for birth cohorts, 1925 to 1997",,,
+,marriagesworkbook2017forpublication.xlsx,,Table 13 Interpretation,Interpreting table 13; proportions of men and women who ever remarried by certain ages and birth cohorts,,,
+,marriagesworkbook2017forpublication.xlsx,,Table 14,"Marriages by area of occurrence, 2017",,,
+,marriagesworkbook2017forpublication.xlsx,,Table 15,"Number of marriages by date, 1996 to 2017",,,
+,marriagesworkbook2017forpublication.xlsx,,Table 16,"Number of conversions of civil partnerships and number of men and women converting by age and sex, 2014 to 2017",,,
+,marriagesworkbook2017forpublication.xlsx,,Related publications,Links to further marriage statistics and related publications,,,
+,marriagesworkbook2020.xlsx,,,,,This spreadsheet contains the data tables published for Marriages in England and Wales: 2020 release,
+,marriagesworkbook2020.xlsx,,,,,Marriages 2020 publication,
+,marriagesworkbook2020.xlsx,,,,,"The number and timing of marriages conducted during 2020 may have been affected by restrictions around ceremonies and receptions, and disruption to registration services in England and Wales during the coronavirus (COVID-19) pandemic. Caution should be taken when making comparisons with other years.",
+,marriagesworkbook2020.xlsx,,,,,Information on marriages statistics,
+,marriagesworkbook2020.xlsx,,,,,Marriage statistics are derived from information recorded when marriages are legally registered as part of civil registration.,
+,marriagesworkbook2020.xlsx,,,,,Figures represent civil and religious marriages that take place in England and Wales only. ,
+,marriagesworkbook2020.xlsx,,,,,Marriages to residents of England and Wales that take place outside of England and Wales are not included while marriages that take place in England and Wales to non-residents are included.,
+,marriagesworkbook2020.xlsx,,,,,Marriages of same-sex couples first took place on 29 March 2014. Figures for 2014 represent a part-year only.,
+,marriagesworkbook2020.xlsx,,,,,"Same-sex couples in a civil partnership have been able to convert their existing civil partnership into a marriage, if they so desired, from 10 December 2014; these are not included in the number of marriages taking place but are reported separately in Table 13.",
+,marriagesworkbook2020.xlsx,,,,,Publication dates,
+,marriagesworkbook2020.xlsx,,,,,Date of release: 11 May 2023,
+,marriagesworkbook2020.xlsx,,,,,Date of next release: To be announced,
+,marriagesworkbook2020.xlsx,,,,,Quality and methodology,
+,marriagesworkbook2020.xlsx,,,,,"Our Marriages Quality and Methodology Information document contains important information on the strengths and limitations of the data, the uses and users of data, how the output was created, how it compares with related data and the quality and accuracy of the data.",
+,marriagesworkbook2020.xlsx,,,,,Marriages in England and Wales QMI,
+,marriagesworkbook2020.xlsx,,,,,"Our user guide to marriage statistics provides further information on data quality, legislation and procedures relating to marriages. ",
+,marriagesworkbook2020.xlsx,,,,,User guide to marriages statistics,
+,marriagesworkbook2020.xlsx,,,,,Population estimates used to calculate marriage rates,
+,marriagesworkbook2020.xlsx,,,,,The latest population estimates by marital status at the time of this release have been used to calculate marriage rates.,
+,marriagesworkbook2020.xlsx,,,,,"Population estimates by marital status and living arrangements, England and Wales",
+,marriagesworkbook2020.xlsx,,,,,Population estimates by marital status and living arrangements QMI,
+,marriagesworkbook2020.xlsx,,,,,Units and notes,
+,marriagesworkbook2020.xlsx,,,,,"Some cells in the tables refer to notes which can be found in the notes worksheet. Note markers are presented in square brackets, for example: [note 1].",
+,marriagesworkbook2020.xlsx,,,,,"Some column headings give units, when this is the case the units are presented in round brackets to differentiate them from note markers.  ",
+,marriagesworkbook2020.xlsx,,,,,Symbols and conventions,
+,marriagesworkbook2020.xlsx,,,,,Symbols used are:,
+,marriagesworkbook2020.xlsx,,,,,[low] rounds to 0,
+,marriagesworkbook2020.xlsx,,,,,[u1] low reliability - rates not calculated as there are fewer than 3 marriages,
+,marriagesworkbook2020.xlsx,,,,,[u2] low reliability - rates are based on between 3 and 19 marriages,
+,marriagesworkbook2020.xlsx,,,,,[x] denotes not available,
+,marriagesworkbook2020.xlsx,,,,,[z] denotes not applicable,
+,marriagesworkbook2020.xlsx,,,,,"It is ONS practice not to calculate rates where there are fewer than 3 marriages in a cell, as rates based on such low numbers are susceptible to inaccurate interpretation. These cases are shown with a reliability indicator of [u1]. Rates which are based on between 3 and 19 marriages are displayed in tables but are denoted by [u2] as a warning to the user that their reliability as a measure may be affected by the small number of events. ",
+,marriagesworkbook2020.xlsx,,,,,Further Information and Enquiries,
+,marriagesworkbook2020.xlsx,,,,,"Special extracts and tabulations of marriage data for England and Wales are available to order for a charge (subject to legal frameworks, disclosure control, resources and the ONS charging policy, where appropriate).",
+,marriagesworkbook2020.xlsx,,,,,ONS charging policy,
+,marriagesworkbook2020.xlsx,,,,,"We welcome feedback from users, please contact the Demographic Analysis Unit by email",
+,marriagesworkbook2020.xlsx,,,,,pop.info@ons.gov.uk,
+,marriagesworkbook2020.xlsx,,,,,or telephone: +44 (0)1329 444661.,
+,marriagesworkbook2020.xlsx,,,,,User Feedback,
+,marriagesworkbook2020.xlsx,,,,,"We are constantly trying to improve our service and would like to hear your feedback on how we are doing.
+Please click an option below to email us with you thoughts and comments.",
+,marriagesworkbook2020.xlsx,,,,,"This met my needs, please produce it next year",
+,marriagesworkbook2020.xlsx,,,,,I need something slightly different (please specify),
+,marriagesworkbook2020.xlsx,,,,,This is not what I need at all (please specify),
+,marriagesworkbook2020.xlsx,,,,,A National Statistics publication,
+,marriagesworkbook2020.xlsx,,,,,National Statistics are produced to high professional standards set out in the Code of Practice for Statistics. They are produced free from any political interference.,
+,marriagesworkbook2020.xlsx,,,,,Code of practice,
+,marriagesworkbook2020.xlsx,,,,,"The United Kingdom Statistics Authority has designated these statistics as National Statistics, in accordance with the Statistics and Registration Service Act 2007 and signifying compliance with the Code of Practice for Statistics. ",
+,marriagesworkbook2020.xlsx,,,,,"Designation can be broadly interpreted to mean that the statistics meet identified user needs, are well explained and readily accessible, are produced according to sound methods, and are managed impartially and objectively in the public interest. ",
+,marriagesworkbook2020.xlsx,,,,,Once statistics have been designated as National Statistics it is a statutory requirement that the Code of Practice shall continue to be observed.,
+,marriagesworkbook2020.xlsx,,,,,Copyright and reproduction ,
+,marriagesworkbook2020.xlsx,,,,,© Crown copyright 2023,
+,marriagesworkbook2020.xlsx,,,,,"You may re-use this document/publication (not including logos) free of charge in any format or medium, under the terms of the Open Government Licence. Users should include a source accreditation to ONS - Source: Office for National Statistics licensed under the Open Government Licence.",
+,marriagesworkbook2020.xlsx,,,,,View licence,
+,marriagesworkbook2020.xlsx,,,,,"Or write to the Information Policy Team, The National Archives, Kew, Richmond, Surrey, TW9 4DU.",
+,marriagesworkbook2020.xlsx,,,,,Where we have identified any third party copyright information you will need to obtain permission from the copyright holders concerned.,
+,marriagesworkbook2020.xlsx,,,,,This document/publication is also available on our website,
+,marriagesworkbook2020.xlsx,,,,,ONS website,
+,marriagesworkbook2020.xlsx,,,,,Related publications,
+,marriagesworkbook2020.xlsx,,,,,"More detailed marriage statistics are available as an explorable dataset on NOMIS for the years 2001 to 2020. This dataset provides statistics on opposite-sex marriages which took place in England and Wales, broken down by age group, marital status, ceremony, area of occurrence. Data for same-sex marriages are also available as an explorable dataset on NOMIS for the years 2014 to 2020.",
+,marriagesworkbook2020.xlsx,,,,,NOMIS marriage statistics for opposite-sex and same-sex couples,
+,marriagesworkbook2020.xlsx,,,,,"Annual divorce numbers and rates, by duration of marriage, sex and to whom granted and reason.",
+,marriagesworkbook2020.xlsx,,,,,Divorce statistics in England and Wales,
+,marriagesworkbook2020.xlsx,,,,,A short article on older people in England and Wales who are getting married and divorced in greater numbers using data to 2014.,
+,marriagesworkbook2020.xlsx,,,,,Marriage and divorce on the rise at 65 and over,
+,marriagesworkbook2020.xlsx,,,,,"Annual statistics on formations and dissolutions of civil partnerships analysed by the sex, age, and previous marital status of the couples and the place of registration. ",
+,marriagesworkbook2020.xlsx,,,,,Civil Partnerships in England and Wales statistical bulletin,
+,marriagesworkbook2020.xlsx,,,,,"Summary marriage, divorce and civil partnership statistics for the United Kingdom and its constituent countries.",
+,marriagesworkbook2020.xlsx,,,,,"Vital statistics in the UK: births, deaths and marriages",
+,marriagesworkbook2020.xlsx,,,,,Annual estimates of population by legal marital status and cohabitation status by age and sex for England and Wales.,
+,marriagesworkbook2020.xlsx,,,,,Population estimates by marital status and living arrangements,
+,marriagesworkbook2020.xlsx,,,,,An article examining some of the long-term trends in marriage and relationships.,
+,marriagesworkbook2020.xlsx,,,,,Married by 30? You're now in the minority,
+,marriagesworkbook2020.xlsx,,,,,How wedding dates have changed through the years.,
+,marriagesworkbook2020.xlsx,,,,,Let's get married. Ok - when?,
+,marriagesworkbook2020.xlsx,,,,,Explore how your wedding date compares with others.,
+,marriagesworkbook2020.xlsx,,,,,Save the date,
+,marriagesworkbook2023.xlsx,,,,,,This spreadsheet contains the marriages data tables published for the Marriages and civil partnerships in England and Wales: 2023 release
+,marriagesworkbook2023.xlsx,,,,,,Marriages and civil partnerships 2023 publication
+,marriagesworkbook2023.xlsx,,,,,,Information on marriage statistics
+,marriagesworkbook2023.xlsx,,,,,,Marriage statistics are derived from information recorded when marriages are legally registered as part of civil registration.
+,marriagesworkbook2023.xlsx,,,,,,Figures represent civil and religious marriages that take place in England and Wales only. 
+,marriagesworkbook2023.xlsx,,,,,,Marriages to residents of England and Wales that take place outside of England and Wales are not included while marriages that take place in England and Wales to non-residents are included.
+,marriagesworkbook2023.xlsx,,,,,,Marriages of same-sex couples first took place on 29 March 2014. Figures for 2014 represent a part-year only.
+,marriagesworkbook2023.xlsx,,,,,,"Same-sex couples in a civil partnership have been able to convert their existing civil partnership into a marriage, if they so desired, from 10 December 2014; these are not included in the number of marriages taking place but are reported separately in Table 13."
+,marriagesworkbook2023.xlsx,,,,,,Statistics on civil partnerships are published separately in our annual civil partnership formations in England and Wales data tables
+,marriagesworkbook2023.xlsx,,,,,,Civil partnership formations
+,marriagesworkbook2023.xlsx,,,,,,"The number and timing of marriages conducted during 2020 and 2021 may have been affected by restrictions around ceremonies and receptions, and disruption to registration services in England and Wales during the coronavirus (COVID-19) pandemic. Caution should be taken when making comparisons of these data with other years."
+,marriagesworkbook2023.xlsx,,,,,,"The Marriages and Civil Partnership (Minimum Age) Act 2022 was introduced on 27 February 2023, which raised the minimum legal age of marriage or civil partnership to 18 years of age in England and Wales."
+,marriagesworkbook2023.xlsx,,,,,,Marriages and Civil Partnership (Minimum Age) Act 2022
+,marriagesworkbook2023.xlsx,,,,,,Publication dates
+,marriagesworkbook2023.xlsx,,,,,,Date of release: 18 November 2025
+,marriagesworkbook2023.xlsx,,,,,,Date of next release: To be announced
+,marriagesworkbook2023.xlsx,,,,,,Quality and methodology
+,marriagesworkbook2023.xlsx,,,,,,"Our Marriages and Civil Partnerships Quality and Methodology Information document contains important information on the strengths and limitations of the data, the uses and users of data, how the output was created, how it compares with related data and the quality and accuracy of the data."
+,marriagesworkbook2023.xlsx,,,,,,Marriages and civil partnerships in England and Wales QMI
+,marriagesworkbook2023.xlsx,,,,,,"Our user guide to marriage statistics provides further information on data quality, legislation and procedures relating to marriages. "
+,marriagesworkbook2023.xlsx,,,,,,User guide to marriages statistics
+,marriagesworkbook2023.xlsx,,,,,,Population estimates used to calculate marriage rates
+,marriagesworkbook2023.xlsx,,,,,,The latest population estimates by marital status at the time of this release have been used to calculate marriage rates.
+,marriagesworkbook2023.xlsx,,,,,,"Population estimates by marital status and living arrangements, England and Wales"
+,marriagesworkbook2023.xlsx,,,,,,Population estimates by marital status and living arrangements quality and methods guide
+,marriagesworkbook2023.xlsx,,,,,,Units and notes
+,marriagesworkbook2023.xlsx,,,,,,"Some cells in the tables refer to notes which can be found in the notes worksheet. Note markers are presented in square brackets, for example: [note 1]."
+,marriagesworkbook2023.xlsx,,,,,,"Some column headings give units, when this is the case the units are presented in round brackets to differentiate them from note markers.  "
+,marriagesworkbook2023.xlsx,,,,,,Symbols and conventions
+,marriagesworkbook2023.xlsx,,,,,,Symbols used are:
+,marriagesworkbook2023.xlsx,,,,,,[low] rounds to 0
+,marriagesworkbook2023.xlsx,,,,,,[u1] low reliability - rates not calculated as there are fewer than 3 marriages
+,marriagesworkbook2023.xlsx,,,,,,[u2] low reliability - rates are based on between 3 and 19 marriages
+,marriagesworkbook2023.xlsx,,,,,,[x] denotes not available
+,marriagesworkbook2023.xlsx,,,,,,[z] denotes not applicable
+,marriagesworkbook2023.xlsx,,,,,,"It is ONS practice not to calculate rates where there are fewer than 3 marriages in a cell, as rates based on such low numbers are susceptible to inaccurate interpretation. These cases are shown with a reliability indicator of [u1]. Rates which are based on between 3 and 19 marriages are displayed in tables but are denoted by [u2] as a warning to the user that their reliability as a measure may be affected by the small number of events. "
+,marriagesworkbook2023.xlsx,,,,,,Further Information and Enquiries
+,marriagesworkbook2023.xlsx,,,,,,"Special extracts and tabulations of marriage data for England and Wales are available to order for a charge (subject to legal frameworks, disclosure control, resources and the ONS charging policy, where appropriate)."
+,marriagesworkbook2023.xlsx,,,,,,ONS charging policy
+,marriagesworkbook2023.xlsx,,,,,,User Feedback
+,marriagesworkbook2023.xlsx,,,,,,"We welcome feedback from users, and are constantly trying to improve our service. "
+,marriagesworkbook2023.xlsx,,,,,,Above each table you will find links to three different feedback options. Please use these to let us know your thoughts and comments.
+,marriagesworkbook2023.xlsx,,,,,,"Alternatively,  please contact the Demography Team by email"
+,marriagesworkbook2023.xlsx,,,,,,pop.info@ons.gov.uk
+,marriagesworkbook2023.xlsx,,,,,,or telephone: +44 (0)1329 444661.
+,marriagesworkbook2023.xlsx,,,,,,
+,marriagesworkbook2023.xlsx,,,,,,An accredited official statistics publication
+,marriagesworkbook2023.xlsx,,,,,,Accredited official statistics are produced to high professional standards set out in the Code of Practice for Statistics. They are produced free from any political interference.
+,marriagesworkbook2023.xlsx,,,,,,Code of practice
+,marriagesworkbook2023.xlsx,,,,,,"The United Kingdom Statistics Authority has designated these statistics as accredited official statistics, in accordance with the Statistics and Registration Service Act 2007 and signifying compliance with the Code of Practice for Statistics. "
+,marriagesworkbook2023.xlsx,,,,,,"Designation can be broadly interpreted to mean that the statistics meet identified user needs, are well explained and readily accessible, are produced according to sound methods, and are managed impartially and objectively in the public interest. "
+,marriagesworkbook2023.xlsx,,,,,,Once statistics have been designated as accredited official statistics it is a statutory requirement that the Code of Practice shall continue to be observed.
+,marriagesworkbook2023.xlsx,,,,,,Copyright and reproduction 
+,marriagesworkbook2023.xlsx,,,,,,© Crown copyright 2025
+,marriagesworkbook2023.xlsx,,,,,,"You may re-use this document/publication (not including logos) free of charge in any format or medium, under the terms of the Open Government Licence. Users should include a source accreditation to ONS - Source: Office for National Statistics licensed under the Open Government Licence."
+,marriagesworkbook2023.xlsx,,,,,,View licence
+,marriagesworkbook2023.xlsx,,,,,,"Or write to the Information Policy Team, The National Archives, Kew, Richmond, Surrey, TW9 4DU."
+,marriagesworkbook2023.xlsx,,,,,,Or contact by email
+,marriagesworkbook2023.xlsx,,,,,,psi@nationalarchives.gsi.gov.uk
+,marriagesworkbook2023.xlsx,,,,,,Where we have identified any third party copyright information you will need to obtain permission from the copyright holders concerned.
+,marriagesworkbook2023.xlsx,,,,,,This document/publication is also available on our website
+,marriagesworkbook2023.xlsx,,,,,,ONS website
+,marriagesworkbook2023.xlsx,,,,,,Related publications
+,marriagesworkbook2023.xlsx,,,,,,"More detailed marriage statistics are available as an explorable dataset on NOMIS for the years 2001 onwards. This dataset provides statistics on opposite-sex marriages which took place in England and Wales, broken down by age group, marital status, ceremony, area of occurrence. Data for same-sex marriages are also available as an explorable dataset on NOMIS from 2014."
+,marriagesworkbook2023.xlsx,,,,,,NOMIS marriage statistics for opposite-sex and same-sex couples
+,marriagesworkbook2023.xlsx,,,,,,"Annual divorce and civil partnership dissolution numbers and rates, partnership type, to whom granted and duration of marriage"
+,marriagesworkbook2023.xlsx,,,,,,Divorce and dissolution statistics in England and Wales
+,marriagesworkbook2023.xlsx,,,,,,A short article on older people in England and Wales who are getting married and divorced in greater numbers using data to 2014.
+,marriagesworkbook2023.xlsx,,,,,,Marriage and divorce on the rise at 65 and over
+,marriagesworkbook2023.xlsx,,,,,,"Summary marriage, divorce and civil partnership statistics for the United Kingdom and its constituent countries."
+,marriagesworkbook2023.xlsx,,,,,,"Vital statistics in the UK: births, deaths and marriages"
+,marriagesworkbook2023.xlsx,,,,,,Annual estimates of population by legal marital status and cohabitation status by age and sex for England and Wales.
+,marriagesworkbook2023.xlsx,,,,,,Population estimates by marital status and living arrangements
+,marriagesworkbook2023.xlsx,,,,,,An article examining some of the long-term trends in marriage and relationships.
+,marriagesworkbook2023.xlsx,,,,,,Married by 30? You're now in the minority
+,marriagesworkbook2023.xlsx,,,,,,How wedding dates have changed through the years.
+,marriagesworkbook2023.xlsx,,,,,,Let's get married. Ok - when?
+,marriagesworkbook2023.xlsx,,,,,,Explore how your wedding date compares with others.
+,marriagesworkbook2023.xlsx,,,,,,Save the date
+,tablesforpublication2014final.xls,,Contents,"Marriages in England and Wales, 2014",,,
+,tablesforpublication2014final.xls,,,,,,
+,tablesforpublication2014final.xls,,Metadata,Information on marriage statistics,,,
+,tablesforpublication2014final.xls,,Terms and conditions,Terms and conditions,,,
+,tablesforpublication2014final.xls,,Table 1,"Number of marriages by type of ceremony and denomination, 1837 to 2014",,,
+,tablesforpublication2014final.xls,,Table 2,"Number of marriages by previous marital status, 1845 to 2014",,,
+,tablesforpublication2014final.xls,,Table 3,"Number of men marrying by age and previous marital status, 1846 to 2014",,,
+,tablesforpublication2014final.xls,,Table 4,"Number of women marrying by age and previous marital status, 1846 to 2014",,,
+,tablesforpublication2014final.xls,,Table 5,"Median age at marriage: sex and previous marital status, 1846 to 2014",,,
+,tablesforpublication2014final.xls,,Table 6,"Average (mean) age of men marrying: previous marital status, 1846 to 2014",,,
+,tablesforpublication2014final.xls,,Table 7,"Average (mean) age of women marrying: previous marital status, 1846 to 2014",,,
+,tablesforpublication2014final.xls,,Table 8,"Summary of marriage rates, 1862 to 2014",,,
+,tablesforpublication2014final.xls,,Table 9a,"Marriages of opposite sex couples: Number of men and women marrying and marriage rates by age and sex, 2002 to 2014",,,
+,tablesforpublication2014final.xls,,Table 9b,"Marriages of same sex couples: Number of men and women marrying and marriage rates by age and sex, 2014",,,
+,tablesforpublication2014final.xls,,Table 10,"Number of marriages by day and month of occurrence, 2014",,,
+,tablesforpublication2014final.xls,,Table 11,Percentage of men and women cohabiting prior to marriage: Type of ceremony and age 1994 to 2014,,,
+,tablesforpublication2014final.xls,,Table 12,"Proportions of men and women who had ever married by certain ages, for birth cohorts, 1900 to 1998",,,
+,tablesforpublication2014final.xls,,Table 12 Interpretation,Interpreting table 12; proportions of men and women who ever married by certain ages and birth cohorts,,,
+,tablesforpublication2014final.xls,,Table 13,"Proportions of men and women who had ever remarried by certain ages, for birth cohorts, 1925 to 1994",,,
+,tablesforpublication2014final.xls,,Table 13 Interpretation,Interpreting table 13; proportions of men and women who ever remarried by certain ages and birth cohorts,,,
+,tablesforpublication2014final.xls,,Table 14,"Marriages by area of occurrence, 2014",,,
+,tablesforpublication2014final.xls,,Related publications,Links to further marriage statistics and related publications,,,
+,tablesforpublication2015v.1finaltable1updated.xls,,Contents,"Marriages in England and Wales, 2015",,,
+,tablesforpublication2015v.1finaltable1updated.xls,,,,,,
+,tablesforpublication2015v.1finaltable1updated.xls,,Information,Information on marriage statistics,,,
+,tablesforpublication2015v.1finaltable1updated.xls,,Terms and conditions,Terms and conditions,,,
+,tablesforpublication2015v.1finaltable1updated.xls,,Table 1,"Number of marriages by type of ceremony and denomination, 1837 to 2015",,,
+,tablesforpublication2015v.1finaltable1updated.xls,,Table 2,"Number of marriages by previous marital status, 1845 to 2015",,,
+,tablesforpublication2015v.1finaltable1updated.xls,,Table 3,"Number of men marrying by age and previous marital status, 1846 to 2015",,,
+,tablesforpublication2015v.1finaltable1updated.xls,,Table 4,"Number of women marrying by age and previous marital status, 1846 to 2015",,,
+,tablesforpublication2015v.1finaltable1updated.xls,,Table 5,"Median age at marriage: sex and previous marital status, 1846 to 2015",,,
+,tablesforpublication2015v.1finaltable1updated.xls,,Table 6,"Average (mean) age of men marrying: previous marital status, 1846 to 2015",,,
+,tablesforpublication2015v.1finaltable1updated.xls,,Table 7,"Average (mean) age of women marrying: previous marital status, 1846 to 2015",,,
+,tablesforpublication2015v.1finaltable1updated.xls,,Table 8,"Summary of marriage rates, 1862 to 2015",,,
+,tablesforpublication2015v.1finaltable1updated.xls,,Table 9a,"Marriages of opposite-sex couples: Number of men and women marrying and marriage rates by age and sex, 1971 to 2015",,,
+,tablesforpublication2015v.1finaltable1updated.xls,,Table 9b,"Marriages of same-sex couples: Number of men and women marrying and marriage rates by age and sex, 2014 to 2015",,,
+,tablesforpublication2015v.1finaltable1updated.xls,,Table 10,"Number of marriages by day and month of occurrence, 2015",,,
+,tablesforpublication2015v.1finaltable1updated.xls,,Table 11,Percentage of men and women cohabiting prior to marriage: Type of ceremony and age 1994 to 2015,,,
+,tablesforpublication2015v.1finaltable1updated.xls,,Table 12,"Proportions of men and women who had ever married by certain ages, for birth cohorts, 1900 to 1999",,,
+,tablesforpublication2015v.1finaltable1updated.xls,,Table 12 Interpretation,Interpreting table 12; proportions of men and women who ever married by certain ages and birth cohorts,,,
+,tablesforpublication2015v.1finaltable1updated.xls,,Table 13,"Proportions of men and women who had ever remarried by certain ages, for birth cohorts, 1925 to 1995",,,
+,tablesforpublication2015v.1finaltable1updated.xls,,Table 13 Interpretation,Interpreting table 13; proportions of men and women who ever remarried by certain ages and birth cohorts,,,
+,tablesforpublication2015v.1finaltable1updated.xls,,Table 14,"Marriages by area of occurrence, 2015",,,
+,tablesforpublication2015v.1finaltable1updated.xls,,Related publications,Links to further marriage statistics and related publications,,,
+,tablesforpublicationfinal.xls,,Contents,"Marriages in England and Wales, 2013",,,
+,tablesforpublicationfinal.xls,,,,,,
+,tablesforpublicationfinal.xls,,Metadata,Information on marriage statistics,,,
+,tablesforpublicationfinal.xls,,Terms and conditions,Terms and conditions,,,
+,tablesforpublicationfinal.xls,,Table 1,"Number of marriages by type of ceremony and denomination, 1837 to 2013",,,
+,tablesforpublicationfinal.xls,,Table 2,"Number of marriages by previous marital status, 1845 to 2013",,,
+,tablesforpublicationfinal.xls,,Table 3,"Number of marriages by age and previous marital status of groom, 1846 to 2013",,,
+,tablesforpublicationfinal.xls,,Table 4,"Number of marriages by age and previous marital status of bride, 1846 to 2013",,,
+,tablesforpublicationfinal.xls,,Table 5,"Median age at marriage: sex and previous marital status, 1846 to 2013",,,
+,tablesforpublicationfinal.xls,,Table 6,"Average (mean) age of grooms: previous marital status, 1846 to 2013",,,
+,tablesforpublicationfinal.xls,,Table 7,"Average (mean) age of brides: previous marital status, 1846 to 2013",,,
+,tablesforpublicationfinal.xls,,Table 8,"Summary of marriage rates, 1862 to 2013",,,
+,tablesforpublicationfinal.xls,,Table 9,"Marriage rates by age and sex, 2002 to 2013",,,
+,tablesforpublicationfinal.xls,,Table 10a,"Number of marriages and type of ceremony by day and month of occurrence, 2012",,,
+,tablesforpublicationfinal.xls,,Table10b,"Number of marriages and type of ceremony by day and month of occurrence, 2013",,,
+,tablesforpublicationfinal.xls,,Table 11,Percentage of brides and grooms cohabiting prior to marriage: Type of ceremony and age 1994 to 2013,,,
+,tablesforpublicationfinal.xls,,Table 12,"Proportions of men and women who had ever married by certain ages, for birth cohorts, 1900 to 1997",,,
+,tablesforpublicationfinal.xls,,Table 12 Interpretation,Interpreting table 12; proportions of men and women who ever married by certain ages and birth cohorts,,,
+,tablesforpublicationfinal.xls,,Table 13,"Proportions of men and women who had ever remarried by certain ages, for birth cohorts, 1925 to 1993",,,
+,tablesforpublicationfinal.xls,,Table 13 Interpretation,Interpreting table 13; proportions of men and women who ever remarried by certain ages and birth cohorts,,,
+,tablesforpublicationfinal.xls,,Related publications,Links to further marriage statistics and related publications,,,

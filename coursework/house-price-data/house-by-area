@@ -1,0 +1,212 @@
+import os
+import pandas as pd
+import matplotlib.pyplot as plt
+
+data_folder = r"C:\Users\elmak\Documents\Launch Into Computing\coursework\house-price-data"
+
+# find csv files
+csv_files = [f for f in os.listdir(data_folder) if f.endswith(".csv")]
+
+print("Files found:", csv_files)
+
+dataframes = []
+
+for file in csv_files:
+    path = os.path.join(data_folder, file)
+    temp_df = pd.read_csv(path, header=None)
+    dataframes.append(temp_df)
+
+# combine all years
+df = pd.concat(dataframes, ignore_index=True)
+
+print("Total rows:", len(df))
+print("Total columns:", df.shape[1])
+
+# column names
+df.columns = [
+    "transaction_id",
+    "price",
+    "date",
+    "postcode",
+    "property_type",
+    "new_build",
+    "tenure",
+    "paon",
+    "saon",
+    "street",
+    "locality",
+    "town",
+    "district",
+    "county",
+    "ppd_category",
+    "record_status"
+]
+
+# --------------------------------------------------
+# CLEAN ADDRESS DATA
+# --------------------------------------------------
+
+# make sure address columns are treated as text
+df["paon"] = df["paon"].astype(str)
+df["saon"] = df["saon"].astype(str)
+df["street"] = df["street"].astype(str)
+df["postcode"] = df["postcode"].astype(str)
+
+# remove extra spaces and standardise capital letters
+df["paon"] = df["paon"].str.strip().str.upper()
+df["saon"] = df["saon"].str.strip().str.upper()
+df["street"] = df["street"].str.strip().str.upper()
+df["postcode"] = df["postcode"].str.strip().str.upper()
+
+# replace missing-style text values with empty strings
+df["paon"] = df["paon"].replace(["NAN", "NONE"], "")
+df["saon"] = df["saon"].replace(["NAN", "NONE"], "")
+df["street"] = df["street"].replace(["NAN", "NONE"], "")
+df["postcode"] = df["postcode"].replace(["NAN", "NONE"], "")
+
+# remove rows where the key address information is missing
+df = df[
+    (df["paon"] != "") &
+    (df["street"] != "") &
+    (df["postcode"] != "")
+].copy()
+
+print("\nRows after cleaning:", len(df))
+
+# convert date
+df["date"] = pd.to_datetime(df["date"], errors="coerce")
+
+# remove rows where date could not be converted
+df = df[df["date"].notna()].copy()
+
+# create year column
+df["year"] = df["date"].dt.year
+
+# remove transactions for the same property on the same day
+df = df.drop_duplicates(
+    subset=["paon", "saon", "street", "postcode", "date"]
+)
+
+print("\nRows after removing same-day duplicate transactions:", len(df))
+
+# --------------------------------------------------
+# COUNTY PRICE CHANGE BY YEAR
+# --------------------------------------------------
+
+output_folder = r"C:\Users\elmak\Documents\Launch Into Computing\coursework\house-price-data"
+
+# clean county names
+df["county"] = df["county"].astype(str).str.strip().str.upper()
+df["county"] = df["county"].replace(["NAN", "NONE"], "")
+
+# keep only rows with a county
+df_county = df[df["county"] != ""].copy()
+
+# calculate average price by county and year
+county_year_prices = (
+    df_county.groupby(["county", "year"])["price"]
+    .mean()
+    .round(2)
+    .reset_index()
+)
+
+print("\nAverage price by county and year:")
+print(county_year_prices.head(20))
+
+# --------------------------------------------------
+# COUNTY PRICE CHANGE BY YEAR
+# --------------------------------------------------
+
+output_folder = r"C:\Users\elmak\Documents\Launch Into Computing\coursework\house-price-data"
+
+# clean county names
+df["county"] = df["county"].astype(str).str.strip().str.upper()
+df["county"] = df["county"].replace(["NAN", "NONE"], "")
+
+# keep only rows with a county
+df_county = df[df["county"] != ""].copy()
+
+# --------------------------------------------------
+# REMOVE TOP 1% OF PRICES
+# --------------------------------------------------
+
+price_cutoff = df_county["price"].quantile(0.99)
+
+df_county_filtered = df_county[df_county["price"] <= price_cutoff].copy()
+
+print("\nTop 1% price cutoff:", round(price_cutoff, 2))
+print("Rows after removing top 1%:", len(df_county_filtered))
+
+# calculate average price by county and year
+county_year_prices = (
+    df_county_filtered.groupby(["county", "year"])["price"]
+    .mean()
+    .round(2)
+    .reset_index()
+)
+
+print("\nAverage price by county and year:")
+print(county_year_prices.head(20))
+
+# reshape for plotting
+county_pivot = county_year_prices.pivot(
+    index="year",
+    columns="county",
+    values="price"
+)
+
+# --------------------------------------------------
+# FIND COUNTIES OF INTEREST
+# --------------------------------------------------
+
+# overall average price
+county_means = county_pivot.mean()
+
+lowest_county = county_means.idxmin()
+highest_county = county_means.idxmax()
+
+# growth calculation
+county_growth = county_pivot.iloc[-1] - county_pivot.iloc[0]
+
+most_growth = county_growth.idxmax()
+least_growth = county_growth.idxmin()
+
+print("\nCounty that stayed lowest overall:", lowest_county)
+print("County that stayed highest overall:", highest_county)
+print("County with most growth:", most_growth)
+print("County with least growth:", least_growth)
+
+# counties to plot - using a dictionary to store the county and its description for the legend
+counties_to_plot = {
+    lowest_county: "Lowest overall price",
+    highest_county: "Highest overall price",
+    most_growth: "Most price growth",
+    least_growth: "Least price growth"
+}
+
+# --------------------------------------------------
+# PLOT SELECTED COUNTIES
+# --------------------------------------------------
+
+plt.figure(figsize=(12,8))
+
+for county, label in counties_to_plot.items():
+    plt.plot(
+        county_pivot.index,
+        county_pivot[county],
+        marker="o",
+        label=f"{county} ({label})"
+    )
+
+plt.title("Selected County Price Trends")
+plt.xlabel("Year")
+plt.ylabel("Average House Price")
+plt.xticks(county_pivot.index)
+
+plt.legend()
+plt.tight_layout()
+
+# save chart
+plt.savefig(os.path.join(output_folder, "county_selected_trends.png"))
+
+plt.show()

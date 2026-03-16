@@ -1,0 +1,208 @@
+import os
+import pandas as pd
+
+data_folder = r"C:\Users\elmak\Documents\Launch Into Computing\coursework\house-price-data"
+
+# find csv files
+csv_files = [f for f in os.listdir(data_folder) if f.endswith(".csv")]
+
+print("Files found:", csv_files)
+
+dataframes = []
+
+for file in csv_files:
+    path = os.path.join(data_folder, file)
+    temp_df = pd.read_csv(path, header=None)
+    dataframes.append(temp_df)
+
+# combine all years
+df = pd.concat(dataframes, ignore_index=True)
+
+print("Total rows:", len(df))
+print("Total columns:", df.shape[1])
+
+
+# column names
+df.columns = [
+    "transaction_id",
+    "price",
+    "date",
+    "postcode",
+    "property_type",
+    "new_build",
+    "tenure",
+    "paon",
+    "saon",
+    "street",
+    "locality",
+    "town",
+    "district",
+    "county",
+    "ppd_category",
+    "record_status"
+]
+
+# --------------------------------------------------
+# CLEAN ADDRESS DATA
+# --------------------------------------------------
+
+# make sure address columns are treated as text
+df["paon"] = df["paon"].astype(str)
+df["saon"] = df["saon"].astype(str)
+df["street"] = df["street"].astype(str)
+df["postcode"] = df["postcode"].astype(str)
+
+# remove extra spaces and standardise capital letters
+df["paon"] = df["paon"].str.strip().str.upper()
+df["saon"] = df["saon"].str.strip().str.upper()
+df["street"] = df["street"].str.strip().str.upper()
+df["postcode"] = df["postcode"].str.strip().str.upper()
+
+# replace missing-style text values with empty strings
+df["paon"] = df["paon"].replace(["NAN", "NONE"], "")
+df["saon"] = df["saon"].replace(["NAN", "NONE"], "")
+df["street"] = df["street"].replace(["NAN", "NONE"], "")
+df["postcode"] = df["postcode"].replace(["NAN", "NONE"], "")
+
+# remove rows where the key address information is missing
+df = df[
+    (df["paon"] != "") &
+    (df["street"] != "") &
+    (df["postcode"] != "")
+]
+
+print("\nRows after cleaning:", len(df))
+
+# convert date
+df["date"] = pd.to_datetime(df["date"], errors="coerce")
+
+# remove transactions for the same property on the same day
+df = df.drop_duplicates(
+    subset=["paon", "saon", "street", "postcode", "date"]
+)
+
+print("\nRows after removing same-day duplicate transactions:", len(df))
+
+
+# -------------------------
+# BASIC ANALYSIS
+# -------------------------
+
+print("\nMean price:", round(df["price"].mean(), 2))
+print("Median price:", round(df["price"].median(), 2))
+
+
+# trend by year
+df["year"] = df["date"].dt.year
+
+print("\nAverage price by year")
+print(round(df.groupby("year")["price"].mean(), 2))
+
+
+# property type comparison
+print("\nAverage price by property type")
+print(round(df.groupby("property_type")["price"].mean(), 2))
+
+import matplotlib.pyplot as plt
+
+# -------------------------
+# BASIC ANALYSIS (TOP 1% PRICES REMOVED)
+# -------------------------
+
+# calculate 99th percentile price
+price_cutoff = df["price"].quantile(0.99)
+
+# create filtered dataset
+df_no_outliers = df[df["price"] <= price_cutoff].copy()
+
+print("\nTop 1% price cutoff:", round(price_cutoff, 2))
+print("Rows after removing top 1% prices:", len(df_no_outliers))
+
+
+print("\nMean price (top 1% removed):", round(df_no_outliers["price"].mean(), 2))
+print("Median price (top 1% removed):", round(df_no_outliers["price"].median(), 2))
+
+
+# trend by year
+print("\nAverage price by year (top 1% removed)")
+print(round(df_no_outliers.groupby("year")["price"].mean(), 2))
+
+
+# property type comparison
+print("\nAverage price by property type (top 1% removed)")
+print(round(df_no_outliers.groupby("property_type")["price"].mean(), 2))
+
+import matplotlib.pyplot as plt
+
+# -------------------------
+# VISUALISATIONS
+# -------------------------
+
+import matplotlib.pyplot as plt
+
+output_folder = r"C:\Users\elmak\Documents\Launch Into Computing\coursework\house-price-data"
+
+# yearly averages
+yearly_prices = df.groupby("year")["price"].mean().round(2)
+yearly_prices_no_outliers = df_no_outliers.groupby("year")["price"].mean().round(2)
+
+
+# -------------------------
+# CHART 1 — ALL DATA
+# -------------------------
+
+plt.figure(figsize=(10,6))
+plt.plot(yearly_prices.index, yearly_prices.values, marker="o")
+
+plt.title("Average Property Price by Year (All Data)")
+plt.xlabel("Year")
+plt.ylabel("Average Price")
+plt.xticks(yearly_prices.index)
+
+plt.tight_layout()
+
+plt.savefig(os.path.join(output_folder, "prices_by_year_all_data.png"))
+
+plt.show()
+
+
+# -------------------------
+# CHART 2 — TOP 1% REMOVED
+# -------------------------
+
+plt.figure(figsize=(10,6))
+plt.plot(yearly_prices_no_outliers.index, yearly_prices_no_outliers.values, marker="o")
+
+plt.title("Average Property Price by Year (Top 1% Removed)")
+plt.xlabel("Year")
+plt.ylabel("Average Price")
+plt.xticks(yearly_prices_no_outliers.index)
+
+plt.tight_layout()
+
+plt.savefig(os.path.join(output_folder, "prices_by_year_top1_removed.png"))
+
+plt.show()
+
+
+# -------------------------
+# CHART 3 — OVERLAY COMPARISON
+# -------------------------
+
+plt.figure(figsize=(10,6))
+
+plt.plot(yearly_prices.index, yearly_prices.values, marker="o", label="All data")
+plt.plot(yearly_prices_no_outliers.index, yearly_prices_no_outliers.values, marker="o", label="Top 1% removed")
+
+plt.title("Average Property Price by Year Comparison")
+plt.xlabel("Year")
+plt.ylabel("Average Price")
+plt.xticks(yearly_prices.index)
+
+plt.legend()
+
+plt.tight_layout()
+
+plt.savefig(os.path.join(output_folder, "price_comparison_overlay.png"))
+
+plt.show()

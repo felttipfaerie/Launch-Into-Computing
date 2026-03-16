@@ -1,0 +1,62 @@
+import os
+import pandas as pd
+import numpy as np
+
+                  
+from sklearn.model_selection import train_test_split
+
+                  
+from sklearn.ensemble import RandomForestClassifier
+
+                  
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+
+                  
+from sklearn.utils import resample
+
+                  
+from sklearn.preprocessing import LabelEncoder, StandardScaler
+
+                  
+from sklearn.metrics import classification_report
+
+data_folder = r"C:\Users\elmak\Documents\Launch Into Computing\coursework\house-price-data"
+
+# find csv files
+csv_files = [f for f in os.listdir(data_folder) if f.endswith(".csv")]
+
+print("Files found:", csv_files)
+
+dataframes = []
+
+for file in csv_files:
+    path = os.path.join(data_folder, file)
+    temp_df = pd.read_csv(path, header=None)
+    dataframes.append(temp_df)
+
+# combine all years
+df = pd.concat(dataframes, ignore_index=True)
+
+print("Total rows:", len(df))
+print("Total columns:", df.shape[1])
+df.info() 
+
+# column names
+df.columns = [
+    "transaction_id",
+    "price",
+    "date",
+    "postcode",
+    "property_type",
+    "new_build",
+    "tenure",
+    "paon",
+    "saon",
+    "street",
+    "locality",
+    "town",
+    "district",
+    "county",
+    "ppd_category",
+    "record_status"
+]
