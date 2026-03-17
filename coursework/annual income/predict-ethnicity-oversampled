@@ -2,6 +2,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+from pathlib import Path
+
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
@@ -10,10 +12,12 @@ from sklearn.utils import resample
 
 
 # ==========================================
-# SETTINGS
+# SETTINGS (RELATIVE PATHS)
 # ==========================================
 
-file_path = r"C:\Users\elmak\Documents\Launch Into Computing\coursework\annual income\adult.data"
+file_path = Path(__file__).parent / "adult.data"
+output_dir = Path(__file__).parent / "output"
+output_dir.mkdir(exist_ok=True)
 
 target_column = "race"
 
@@ -22,8 +26,6 @@ columns = [
     "marital_status","occupation","relationship","race","sex",
     "capital_gain","capital_loss","hours_per_week","native_country","income"
 ]
-
-output_folder = r"C:\Users\elmak\Documents\Launch Into Computing\coursework\annual income"
 
 
 # ==========================================
@@ -63,10 +65,8 @@ model_df = df.copy()
 encoders = {}
 
 for col in feature_columns:
-
     if pd.api.types.is_numeric_dtype(model_df[col]):
         model_df[col] = model_df[col].fillna(model_df[col].median())
-
     else:
         model_df[col] = model_df[col].fillna("MISSING")
         le = LabelEncoder()
@@ -112,7 +112,6 @@ max_size = class_counts.max()
 balanced_classes = []
 
 for race_class in class_counts.index:
-
     subset = train_df[train_df["race"] == race_class]
 
     subset_upsampled = resample(
@@ -167,7 +166,7 @@ print(classification_report(y_test, y_pred))
 # ==========================================
 
 cm = confusion_matrix(y_test, y_pred)
-cm_norm = cm.astype("float") / cm.sum(axis=1)[:, None]
+cm_norm = cm.astype("float") / cm.sum(axis=1, keepdims=True)
 
 plt.figure(figsize=(6,5))
 
@@ -180,14 +179,14 @@ sns.heatmap(
     yticklabels=target_encoder.classes_
 )
 
-plt.title("Normalized Confusion Matrix (Oversampled Training)")
+plt.title("Normalized Confusion Matrix (Oversampled By Race)")
 plt.xlabel("Predicted Race")
 plt.ylabel("Actual Race")
 
 plt.tight_layout()
 
-confusion_path = f"{output_folder}\\confusion_matrix_oversampled.png"
-plt.savefig(confusion_path, dpi=300)
+confusion_path = output_dir / "confusion_matrix_oversampled.png"
+plt.savefig(confusion_path, dpi=300, bbox_inches="tight")
 
 plt.show()
 plt.close()
@@ -201,10 +200,10 @@ print("Confusion matrix saved:", confusion_path)
 
 results_df = X_test.copy()
 
-results_df["actual_race"] = target_encoder.inverse_transform(y_test)
+results_df["actual_race"] = target_encoder.inverse_transform(y_test.to_numpy())
 results_df["predicted_race"] = target_encoder.inverse_transform(y_pred)
 
-prediction_path = f"{output_folder}\\race_predictions_oversampled.csv"
+prediction_path = output_dir / "race_predictions_oversampled.csv"
 results_df.to_csv(prediction_path, index=False)
 
 print("Predictions saved:", prediction_path)
@@ -220,7 +219,6 @@ results["race"] = df.loc[X_test.index, "race"]
 ethnicity_accuracy = []
 
 for race in results["race"].unique():
-
     subset = results[results["race"] == race]
 
     acc = (subset["actual_race"] == subset["predicted_race"]).mean()
@@ -251,7 +249,7 @@ sns.barplot(
     dodge=False
 )
 
-plt.title("Prediction Accuracy by Ethnicity (Oversampled Training)")
+plt.title("Prediction Accuracy by Ethnicity (Oversampled By Race)")
 plt.xlabel("Ethnicity")
 plt.ylabel("Accuracy")
 
@@ -262,8 +260,8 @@ plt.legend(title="Sample Size")
 
 plt.tight_layout()
 
-ethnicity_path = f"{output_folder}\\ethnicity_accuracy_oversampled.png"
-plt.savefig(ethnicity_path, dpi=300)
+ethnicity_path = output_dir / "ethnicity_accuracy_oversampled.png"
+plt.savefig(ethnicity_path, dpi=300, bbox_inches="tight")
 
 plt.show()
 plt.close()

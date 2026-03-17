@@ -2,28 +2,29 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+from pathlib import Path
+
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.utils import resample
 
 
 # ==========================================
 # SETTINGS
 # ==========================================
 
-file_path = r"C:\Users\elmak\Documents\GitHub\Launch-Into-Computing\coursework\annual income\adult.data"
-
+file_path = Path(__file__).parent / "adult.data"
 target_column = "occupation"
 
 columns = [
-    "age","workclass","fnlwgt","education","education_num",
-    "marital_status","occupation","relationship","race","sex",
-    "capital_gain","capital_loss","hours_per_week","native_country","income"
+    "age", "workclass", "fnlwgt", "education", "education_num",
+    "marital_status", "occupation", "relationship", "race", "sex",
+    "capital_gain", "capital_loss", "hours_per_week", "native_country", "income"
 ]
 
-output_folder = r"C:\Users\elmak\Documents\GitHub\Launch-Into-Computing\coursework\annual income"
+output_dir = Path(__file__).parent / "output"
+output_dir.mkdir(exist_ok=True)
 
 
 # ==========================================
@@ -43,10 +44,49 @@ print("Columns:", df.shape[1])
 
 
 # ==========================================
+# VISUALIZATIONS - ORIGINAL DATA
+# ==========================================
+
+# Distribution of occupation (Original Data)
+occupation_counts_original = df["occupation"].fillna("Missing").value_counts()
+
+plt.figure(figsize=(12, 6))
+occupation_counts_original.plot(kind="bar")
+plt.title("Distribution of Occupation (Original Data)")
+plt.xlabel("Occupation")
+plt.ylabel("Count")
+plt.xticks(rotation=45, ha="right")
+plt.tight_layout()
+occupation_dist_path = output_dir / "distribution_of_occupation_(original_data).png"
+plt.savefig(occupation_dist_path, dpi=300, bbox_inches="tight")
+plt.show()
+plt.close()
+
+print("Saved:", occupation_dist_path)
+
+# Distribution of race (Original Data)
+race_counts_original = df["race"].fillna("Missing").value_counts()
+
+plt.figure(figsize=(10, 6))
+race_counts_original.plot(kind="bar")
+plt.title("Distribution of Race (Original Data)")
+plt.xlabel("Race")
+plt.ylabel("Count")
+plt.xticks(rotation=45, ha="right")
+plt.tight_layout()
+race_dist_path = output_dir / "distribution_of_race_(original_data).png"
+plt.savefig(race_dist_path, dpi=300, bbox_inches="tight")
+plt.show()
+plt.close()
+
+print("Saved:", race_dist_path)
+
+
+# ==========================================
 # BASIC CLEANING
 # ==========================================
 
-df = df.dropna()
+df = df.dropna().copy()
 
 print("\nAFTER CLEANING")
 print("Rows:", df.shape[0])
@@ -63,20 +103,17 @@ model_df = df.copy()
 encoders = {}
 
 for col in feature_columns:
-
     if pd.api.types.is_numeric_dtype(model_df[col]):
         model_df[col] = model_df[col].fillna(model_df[col].median())
-
     else:
         model_df[col] = model_df[col].fillna("MISSING")
         le = LabelEncoder()
         model_df[col] = le.fit_transform(model_df[col].astype(str))
         encoders[col] = le
 
-
-# encode target
+# Encode target
 target_encoder = LabelEncoder()
-model_df[target_column] = target_encoder.fit_transform(model_df[target_column])
+model_df[target_column] = target_encoder.fit_transform(model_df[target_column].astype(str))
 
 X = model_df[feature_columns]
 y = model_df[target_column]
@@ -98,6 +135,7 @@ print("\nTRAIN / TEST SPLIT")
 print("Training rows:", len(X_train))
 print("Testing rows :", len(X_test))
 
+
 # ==========================================
 # TRAIN MODEL
 # ==========================================
@@ -108,8 +146,8 @@ model = RandomForestClassifier(
 )
 
 model.fit(X_train, y_train)
-
 y_pred = model.predict(X_test)
+
 
 # ==========================================
 # MODEL RESULTS
@@ -121,7 +159,7 @@ print("\nMODEL RESULTS")
 print("Accuracy:", round(accuracy, 4))
 
 print("\nClassification Report:\n")
-print(classification_report(y_test, y_pred))
+print(classification_report(y_test, y_pred, target_names=target_encoder.classes_))
 
 
 # ==========================================
@@ -129,10 +167,12 @@ print(classification_report(y_test, y_pred))
 # ==========================================
 
 cm = confusion_matrix(y_test, y_pred)
-cm_norm = cm.astype("float") / cm.sum(axis=1)[:, None]
 
-plt.figure(figsize=(6,5))
+# Avoid division problems
+cm_norm = cm.astype(float) / cm.sum(axis=1, keepdims=True)
+cm_norm = pd.DataFrame(cm_norm).fillna(0).values
 
+plt.figure(figsize=(12, 8))
 sns.heatmap(
     cm_norm,
     annot=True,
@@ -142,15 +182,15 @@ sns.heatmap(
     yticklabels=target_encoder.classes_
 )
 
-plt.title("Normalized Confusion Matrix (Undersampled Training)")
-plt.xlabel("Predicted Race")
-plt.ylabel("Actual Race")
-
+plt.title("Normalized Confusion Matrix for Occupation (Original Data)")
+plt.xlabel("Predicted Occupation")
+plt.ylabel("Actual Occupation")
+plt.xticks(rotation=45, ha="right")
+plt.yticks(rotation=0)
 plt.tight_layout()
 
-confusion_path = f"{output_folder}\\occupation_matrix_undersampled.png"
-plt.savefig(confusion_path, dpi=300)
-
+confusion_path = output_dir / "occupation_matrix_original_data.png"
+plt.savefig(confusion_path, dpi=300, bbox_inches="tight")
 plt.show()
 plt.close()
 
@@ -158,18 +198,30 @@ print("Confusion matrix saved:", confusion_path)
 
 
 # ==========================================
-# SAVE PREDICTIONS
+# BAR CHART OF OVERALL PREDICTIONS
 # ==========================================
 
-results_df = X_test.copy()
+predicted_labels = pd.Series(
+    target_encoder.inverse_transform(y_pred),
+    name="predicted_occupation"
+)
 
-results_df["actual_occupation"] = target_encoder.inverse_transform(y_test)
-results_df["predicted_occupation"] = target_encoder.inverse_transform(y_pred)
+prediction_counts = predicted_labels.value_counts()
 
-prediction_path = f"{output_folder}\\occupation_predictions_oversampled.csv"
-results_df.to_csv(prediction_path, index=False)
+plt.figure(figsize=(12, 6))
+prediction_counts.plot(kind="bar")
+plt.title("Bar Chart of Overall Predictions (Original Data)")
+plt.xlabel("Predicted Occupation")
+plt.ylabel("Count")
+plt.xticks(rotation=45, ha="right")
+plt.tight_layout()
 
-print("Predictions saved:", prediction_path)
+overall_pred_path = output_dir / "bar_chart_of_overall_predictions_original_data.png"
+plt.savefig(overall_pred_path, dpi=300, bbox_inches="tight")
+plt.show()
+plt.close()
+
+print("Overall predictions chart saved:", overall_pred_path)
 
 
 # ==========================================
@@ -182,7 +234,6 @@ results["occupation"] = df.loc[X_test.index, "occupation"]
 occupation_accuracy = []
 
 for occupation in results["occupation"].unique():
-
     subset = results[results["occupation"] == occupation]
 
     acc = (subset["actual_occupation"] == subset["predicted_occupation"]).mean()
@@ -193,7 +244,7 @@ for occupation in results["occupation"].unique():
         "count": len(subset)
     })
 
-occupation_df = pd.DataFrame(occupation_accuracy)
+occupation_df = pd.DataFrame(occupation_accuracy).sort_values("accuracy", ascending=False)
 
 print("\nAccuracy by occupation:")
 print(occupation_df)
@@ -203,7 +254,7 @@ print(occupation_df)
 # OCCUPATION ACCURACY CHART
 # ==========================================
 
-plt.figure(figsize=(8,5))
+plt.figure(figsize=(12, 6))
 
 sns.barplot(
     data=occupation_df,
@@ -213,20 +264,16 @@ sns.barplot(
     dodge=False
 )
 
-plt.title("Prediction Accuracy by Occupation (Undersampled Training)")
+plt.title("Prediction Accuracy by Occupation (Original Data)")
 plt.xlabel("Occupation")
 plt.ylabel("Accuracy")
-
-plt.xticks(rotation=30)
-plt.ylim(0,1)
-
+plt.xticks(rotation=45, ha="right")
+plt.ylim(0, 1)
 plt.legend(title="Sample Size")
-
 plt.tight_layout()
 
-occupation_path = f"{output_folder}\\occupation_accuracy_undersampled.png"
-plt.savefig(occupation_path, dpi=300)
-
+occupation_path = output_dir / "occupation_accuracy_original_data.png"
+plt.savefig(occupation_path, dpi=300, bbox_inches="tight")
 plt.show()
 plt.close()
 

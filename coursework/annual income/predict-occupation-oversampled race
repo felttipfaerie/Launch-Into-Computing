@@ -2,6 +2,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+from pathlib import Path
+
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
@@ -13,19 +15,18 @@ from sklearn.utils import resample
 # SETTINGS
 # ==========================================
 
-from pathlib import Path
-
 file_path = Path(__file__).parent / "adult.data"
 
 target_column = "occupation"
 
 columns = [
-    "age","workclass","fnlwgt","education","education_num",
-    "marital_status","occupation","relationship","race","sex",
-    "capital_gain","capital_loss","hours_per_week","native_country","income"
+    "age", "workclass", "fnlwgt", "education", "education_num",
+    "marital_status", "occupation", "relationship", "race", "sex",
+    "capital_gain", "capital_loss", "hours_per_week", "native_country", "income"
 ]
 
 output_folder = Path(__file__).parent / "output"
+output_folder.mkdir(exist_ok=True)
 
 
 # ==========================================
@@ -48,7 +49,7 @@ print("Columns:", df.shape[1])
 # BASIC CLEANING
 # ==========================================
 
-df = df.dropna()
+df = df.dropna().copy()
 
 print("\nAFTER CLEANING")
 print("Rows:", df.shape[0])
@@ -65,20 +66,17 @@ model_df = df.copy()
 encoders = {}
 
 for col in feature_columns:
-
     if pd.api.types.is_numeric_dtype(model_df[col]):
         model_df[col] = model_df[col].fillna(model_df[col].median())
-
     else:
         model_df[col] = model_df[col].fillna("MISSING")
         le = LabelEncoder()
         model_df[col] = le.fit_transform(model_df[col].astype(str))
         encoders[col] = le
 
-
 # encode target
 target_encoder = LabelEncoder()
-model_df[target_column] = target_encoder.fit_transform(model_df[target_column])
+model_df[target_column] = target_encoder.fit_transform(model_df[target_column].astype(str))
 
 X = model_df[feature_columns]
 y = model_df[target_column]
@@ -107,16 +105,15 @@ print("Testing rows :", len(X_test))
 
 train_df = X_train.copy()
 train_df["occupation"] = y_train
-train_df["race"] = df.loc[X_train.index, "race"]
+train_df["race_group"] = df.loc[X_train.index, "race"].values
 
-race_counts = train_df["race"].value_counts()
+race_counts = train_df["race_group"].value_counts()
 max_size = race_counts.max()
 
 balanced_groups = []
 
 for race_class in race_counts.index:
-
-    subset = train_df[train_df["race"] == race_class]
+    subset = train_df[train_df["race_group"] == race_class]
 
     subset_upsampled = resample(
         subset,
@@ -127,14 +124,14 @@ for race_class in race_counts.index:
 
     balanced_groups.append(subset_upsampled)
 
-balanced_train = pd.concat(balanced_groups)
+balanced_train = pd.concat(balanced_groups, ignore_index=True)
 
 print("\nRace distribution after oversampling:")
-print(balanced_train["race"].value_counts())
+print(balanced_train["race_group"].value_counts())
 
 
-# remove helper column before training
-X_train_bal = balanced_train.drop(columns=["occupation", "race"])
+# remove helper columns before training
+X_train_bal = balanced_train[feature_columns]
 y_train_bal = balanced_train["occupation"]
 
 
@@ -148,9 +145,7 @@ model = RandomForestClassifier(
 )
 
 model.fit(X_train_bal, y_train_bal)
-
-X_test_model = X_test.drop(columns=["race"])
-y_pred = model.predict(X_test_model)
+y_pred = model.predict(X_test)
 
 
 # ==========================================
@@ -163,7 +158,21 @@ print("\nMODEL RESULTS")
 print("Accuracy:", round(accuracy, 4))
 
 print("\nClassification Report:\n")
-print(classification_report(y_test, y_pred))
+print(classification_report(y_test, y_pred, target_names=target_encoder.classes_))
+
+
+# ==========================================
+# SAVE PREDICTIONS
+# ==========================================
+
+results_df = X_test.copy()
+results_df["actual_occupation"] = target_encoder.inverse_transform(y_test.to_numpy())
+results_df["predicted_occupation"] = target_encoder.inverse_transform(y_pred)
+
+prediction_path = output_folder / "occupation_predictions_oversampled_race.csv"
+results_df.to_csv(prediction_path, index=False)
+
+print("Predictions saved:", prediction_path)
 
 
 # ==========================================
@@ -171,9 +180,9 @@ print(classification_report(y_test, y_pred))
 # ==========================================
 
 cm = confusion_matrix(y_test, y_pred)
-cm_norm = cm.astype("float") / cm.sum(axis=1)[:, None]
+cm_norm = cm.astype("float") / cm.sum(axis=1, keepdims=True)
 
-plt.figure(figsize=(6,5))
+plt.figure(figsize=(10, 8))
 
 sns.heatmap(
     cm_norm,
@@ -184,15 +193,14 @@ sns.heatmap(
     yticklabels=target_encoder.classes_
 )
 
-plt.title("Normalized Confusion Matrix (Oversampled Training)")
-plt.xlabel("Predicted Race")
-plt.ylabel("Actual Race")
+plt.title("Normalized Confusion Matrix (Oversampled By Race)")
+plt.xlabel("Predicted Occupation")
+plt.ylabel("Actual Occupation")
 
 plt.tight_layout()
 
-confusion_path = f"{output_folder}\\occupation_matrix_oversampled_race.png"
-plt.savefig(confusion_path, dpi=300)
-
+confusion_path = output_folder / "occupation_matrix_oversampled_race.png"
+plt.savefig(confusion_path, dpi=300, bbox_inches="tight")
 plt.show()
 plt.close()
 
@@ -200,31 +208,15 @@ print("Confusion matrix saved:", confusion_path)
 
 
 # ==========================================
-# SAVE PREDICTIONS
-# ==========================================
-
-results_df = X_test.copy()
-
-results_df["actual_occupation"] = target_encoder.inverse_transform(y_test)
-results_df["predicted_occupation"] = target_encoder.inverse_transform(y_pred)
-
-prediction_path = f"{output_folder}\\occupation_predictions_oversampled.csv"
-results_df.to_csv(prediction_path, index=False)
-
-print("Predictions saved:", prediction_path)
-
-
-# ==========================================
 # ACCURACY BY OCCUPATION
 # ==========================================
 
 results = results_df.copy()
-results["occupation"] = df.loc[X_test.index, "occupation"]
+results["occupation"] = df.loc[X_test.index, "occupation"].values
 
 occupation_accuracy = []
 
 for occupation in results["occupation"].unique():
-
     subset = results[results["occupation"] == occupation]
 
     acc = (subset["actual_occupation"] == subset["predicted_occupation"]).mean()
@@ -235,7 +227,7 @@ for occupation in results["occupation"].unique():
         "count": len(subset)
     })
 
-occupation_df = pd.DataFrame(occupation_accuracy)
+occupation_df = pd.DataFrame(occupation_accuracy).sort_values("accuracy", ascending=False)
 
 print("\nAccuracy by occupation:")
 print(occupation_df)
@@ -245,7 +237,7 @@ print(occupation_df)
 # OCCUPATION ACCURACY CHART
 # ==========================================
 
-plt.figure(figsize=(8,5))
+plt.figure(figsize=(10, 6))
 
 sns.barplot(
     data=occupation_df,
@@ -255,20 +247,17 @@ sns.barplot(
     dodge=False
 )
 
-plt.title("Prediction Accuracy by Occupation (Oversampled Training)")
+plt.title("Prediction Accuracy by Occupation (Oversampled By Race)")
 plt.xlabel("Occupation")
 plt.ylabel("Accuracy")
-
-plt.xticks(rotation=30)
-plt.ylim(0,1)
+plt.xticks(rotation=30, ha="right")
+plt.ylim(0, 1)
 
 plt.legend(title="Sample Size")
-
 plt.tight_layout()
 
-occupation_path = f"{output_folder}\\occupation_accuracy_oversampled_race.png"
-plt.savefig(occupation_path, dpi=300)
-
+occupation_path = output_folder / "occupation_accuracy_oversampled_race.png"
+plt.savefig(occupation_path, dpi=300, bbox_inches="tight")
 plt.show()
 plt.close()
 

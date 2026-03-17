@@ -1,30 +1,35 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 
-from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from pathlib import Path
+
+from sklearn.model_selection import train_test_split
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
-
-from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import OneHotEncoder
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.metrics import confusion_matrix, accuracy_score
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix, ConfusionMatrixDisplay
 
 
 # --------------------------------------------------
 # LOAD DATA
 # --------------------------------------------------
 
-from pathlib import Path
-
 file_path = Path(__file__).parent / "adult.data"
 
 columns = [
-    "age","workclass","fnlwgt","education","education_num",
-    "marital_status","occupation","relationship","race","sex",
-    "capital_gain","capital_loss","hours_per_week","native_country","income"
+    "age", "workclass", "fnlwgt", "education", "education_num",
+    "marital_status", "occupation", "relationship", "race", "sex",
+    "capital_gain", "capital_loss", "hours_per_week", "native_country", "income"
 ]
 
-df = pd.read_csv(file_path, names=columns, na_values="?", skipinitialspace=True)
+df = pd.read_csv(
+    file_path,
+    names=columns,
+    na_values="?",
+    skipinitialspace=True
+)
 
 print("Initial shape:", df.shape)
 print("\nMissing values:")
@@ -32,107 +37,166 @@ print(df.isna().sum())
 
 
 # --------------------------------------------------
+# VISUALIZATIONS - ORIGINAL DATA
+# --------------------------------------------------
+
+output_dir = Path(__file__).parent / "output"
+output_dir.mkdir(exist_ok=True)
+
+# 1. Distribution of occupation (Original Data)
+occupation_counts = df["occupation"].fillna("Missing").value_counts().sort_values(ascending=False)
+
+plt.figure(figsize=(12, 6))
+occupation_counts.plot(kind="bar")
+plt.title("Distribution of Occupation (Original Data)")
+plt.xlabel("Occupation")
+plt.ylabel("Count")
+plt.xticks(rotation=45, ha="right")
+plt.tight_layout()
+plt.savefig(output_dir / "distribution_of_occupation_original_data.png", dpi=300, bbox_inches="tight")
+plt.show()
+plt.close()
+
+# 2. Distribution of race (Original Data)
+race_counts = df["race"].fillna("Missing").value_counts().sort_values(ascending=False)
+
+plt.figure(figsize=(10, 6))
+race_counts.plot(kind="bar")
+plt.title("Distribution of Race (Original Data)")
+plt.xlabel("Race")
+plt.ylabel("Count")
+plt.xticks(rotation=45, ha="right")
+plt.tight_layout()
+plt.savefig(output_dir / "distribution_of_race_original_data.png", dpi=300, bbox_inches="tight")
+plt.show()
+plt.close()
+
+
+# --------------------------------------------------
 # DEFINE FEATURES
 # --------------------------------------------------
 
-target = "education"
+target = "race"
 
 X = df.drop(columns=[target])
 y = df[target]
+
+print("\nFeatures preview:")
+print(X.head())
+
+print("\nTarget preview:")
+print(y.head())
 
 
 # --------------------------------------------------
 # PREPROCESSING
 # --------------------------------------------------
 
-numerical_cols = X.select_dtypes(include=["int64", "float64"]).columns
-categorical_cols = X.select_dtypes(include=["object"]).columns
+categorical_features = X.select_dtypes(include=["object"]).columns.tolist()
+numeric_features = X.select_dtypes(exclude=["object"]).columns.tolist()
 
-numerical_pipeline = Pipeline([
-    ("imputer", SimpleImputer(strategy="median")),
-    ("scaler", StandardScaler())
+numeric_transformer = Pipeline(steps=[
+    ("imputer", SimpleImputer(strategy="median"))
 ])
 
-categorical_pipeline = Pipeline([
+categorical_transformer = Pipeline(steps=[
     ("imputer", SimpleImputer(strategy="most_frequent")),
-    ("encoder", OneHotEncoder(handle_unknown="ignore"))
+    ("onehot", OneHotEncoder(handle_unknown="ignore"))
 ])
 
-preprocessor = ColumnTransformer([
-    ("num", numerical_pipeline, numerical_cols),
-    ("cat", categorical_pipeline, categorical_cols)
-])
-
-
-# --------------------------------------------------
-# TRAIN TEST SPLIT
-# --------------------------------------------------
-
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y,
-    test_size=0.2,
-    random_state=42
+preprocessor = ColumnTransformer(
+    transformers=[
+        ("num", numeric_transformer, numeric_features),
+        ("cat", categorical_transformer, categorical_features)
+    ]
 )
 
 
 # --------------------------------------------------
-# MODEL PIPELINE
+# TRAIN / TEST SPLIT
 # --------------------------------------------------
 
-model = Pipeline([
+X_train, X_test, y_train, y_test = train_test_split(
+    X,
+    y,
+    test_size=0.2,
+    random_state=42,
+    stratify=y
+)
+
+
+# --------------------------------------------------
+# MODEL
+# --------------------------------------------------
+
+model = Pipeline(steps=[
     ("preprocessor", preprocessor),
-    ("classifier", DecisionTreeClassifier(max_depth=6, random_state=42))
+    ("classifier", DecisionTreeClassifier(random_state=42, max_depth=10))
 ])
 
 model.fit(X_train, y_train)
+y_pred = model.predict(X_test)
 
 
 # --------------------------------------------------
-# OVERALL RESULTS
+# EVALUATION
 # --------------------------------------------------
 
-predictions = model.predict(X_test)
+accuracy = accuracy_score(y_test, y_pred)
 
-print("\nOverall Accuracy:", accuracy_score(y_test, predictions))
+print("\nAccuracy:", accuracy)
+print("\nClassification Report:")
+print(classification_report(y_test, y_pred))
+
+labels = sorted(y.unique())
+cm = confusion_matrix(y_test, y_pred, labels=labels)
 
 
 # --------------------------------------------------
-# CONFUSION MATRICES BY ETHNICITY
+# VISUALIZATION - CONFUSION MATRIX
 # --------------------------------------------------
 
-education_levels = sorted(y.unique())
+fig, ax = plt.subplots(figsize=(10, 8))
+disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=labels)
+disp.plot(ax=ax, xticks_rotation=45, colorbar=False)
+ax.set_title("Race Prediction (Original Data)")
+fig.tight_layout()
+fig.savefig(output_dir / "confusion_matrix.png", dpi=300, bbox_inches="tight")
+plt.show()
+plt.close(fig)
 
-races = [
-    "White",
-    "Asian-Pac-Islander",
-    "Amer-Indian-Eskimo",
-    "Other",
-    "Black"
-]
 
-for race in races:
+# --------------------------------------------------
+# VISUALIZATION - OVERALL PREDICTIONS BAR CHART
+# --------------------------------------------------
 
-    mask = X_test["race"] == race
+pred_counts = pd.Series(y_pred).value_counts().reindex(labels, fill_value=0)
 
-    X_race = X_test[mask]
-    y_race = y_test[mask]
+plt.figure(figsize=(10, 6))
+pred_counts.plot(kind="bar")
+plt.title("Bar Chart of Overall Predictions (Original Data)")
+plt.xlabel("Predicted Race")
+plt.ylabel("Count")
+plt.xticks(rotation=45, ha="right")
+plt.tight_layout()
+plt.savefig(output_dir / "bar_chart_of_overall_predictions.png", dpi=300, bbox_inches="tight")
+plt.show()
+plt.close()
 
-    if len(X_race) == 0:
-        continue
 
-    pred_race = model.predict(X_race)
+# --------------------------------------------------
+# OPTIONAL: NORMALIZED PREDICTION BAR CHART
+# --------------------------------------------------
 
-    matrix = confusion_matrix(y_race, pred_race, labels=education_levels)
+pred_percent = pred_counts / pred_counts.sum()
 
-    matrix_df = pd.DataFrame(
-        matrix,
-        index=[f"Actual: {e}" for e in education_levels],
-        columns=[f"Predicted: {e}" for e in education_levels]
-    )
-
-    print("\n==============================")
-    print(f"Confusion Matrix for {race}")
-    print(f"Samples: {len(X_race)}")
-    print("==============================")
-
-    print(matrix_df)
+plt.figure(figsize=(10, 6))
+pred_percent.plot(kind="bar")
+plt.title("Normalized Bar Chart of Overall Predictions (Original Data)")
+plt.xlabel("Predicted Race")
+plt.ylabel("Proportion")
+plt.xticks(rotation=45, ha="right")
+plt.tight_layout()
+plt.savefig(output_dir / "normalized_bar_chart_of_overall_predictions.png", dpi=300, bbox_inches="tight")
+plt.show()
+plt.close()

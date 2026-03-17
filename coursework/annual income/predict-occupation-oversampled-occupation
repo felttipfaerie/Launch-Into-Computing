@@ -204,20 +204,6 @@ print("Confusion matrix saved:", confusion_path)
 
 
 # ==========================================
-# SAVE PREDICTIONS
-# ==========================================
-
-results_df = X_test.copy()
-results_df["actual_occupation"] = target_encoder.inverse_transform(y_test)
-results_df["predicted_occupation"] = target_encoder.inverse_transform(y_pred)
-
-prediction_path = output_folder / "occupation_predictions_oversampled.csv"
-results_df.to_csv(prediction_path, index=False)
-
-print("Predictions saved:", prediction_path)
-
-
-# ==========================================
 # ACCURACY BY OCCUPATION
 # ==========================================
 
