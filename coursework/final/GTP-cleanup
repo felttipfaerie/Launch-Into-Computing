@@ -1,0 +1,80 @@
+import pandas as pd
+from pathlib import Path
+
+
+def process_names(names):
+    unique_names = set()
+    for name in names:
+        unique_names.add(name.title())
+    unique_names = list(unique_names)
+    unique_names.sort()
+    return unique_names
+
+
+def validate_names(names):
+    invalid_names = []
+
+    for name in names:
+        if pd.isna(name):
+            continue
+
+        name_str = str(name).strip()
+
+        if name_str == "":
+            invalid_names.append(name)
+            continue
+
+        if not name_str.replace("-", "").replace("'", "").isalpha():
+            invalid_names.append(name)
+            continue
+
+        if len(name_str) < 2 or len(name_str) > 30:
+            invalid_names.append(name)
+
+    return invalid_names
+
+
+file_path = Path(__file__).parent / "people-100000.csv"
+
+df = pd.read_csv(
+    file_path,
+    na_values="?",
+    skipinitialspace=True
+)
+
+print("Initial shape:", df.shape)
+print("\nMissing values:")
+print(df.isna().sum())
+
+# Choose which column to analyse
+name_column = "Last Name"   # change to "First Name" if needed
+
+names = df[name_column]
+
+# Missing values
+missing_count = names.isna().sum()
+print(f"\nMissing {name_column.lower()}s:", missing_count)
+
+# Invalid names
+invalid_names = validate_names(names.dropna())
+print("Invalid names found:", len(invalid_names))
+print("Examples of invalid names:", invalid_names[:10])
+
+# Valid names only
+valid_names = [
+    name for name in names.dropna()
+    if name not in invalid_names
+]
+
+# Unique before processing
+unique_names_raw = names.dropna().unique()
+print(f"\nUnique {name_column.lower()}s before processing:", len(unique_names_raw))
+
+# Cleaned unique names
+cleaned_names = process_names(valid_names)
+
+print(f"Total {name_column.lower()}s (before unique):", len(names.dropna()))
+print(f"Valid {name_column.lower()}s:", len(valid_names))
+print(f"Cleaned unique {name_column.lower()}s:", len(cleaned_names))
+
+print("\nProcessed list (first 20):", cleaned_names[:20])
