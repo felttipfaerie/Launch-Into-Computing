@@ -1,4 +1,5 @@
 # clean_names-light-edits.py
+# all code can be found at: https://github.com/felttipfaerie/Launch-Into-Computing/tree/master/coursework/final
 
 import re
 

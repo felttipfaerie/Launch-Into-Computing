@@ -1,4 +1,6 @@
 
+# all code can be found at: https://github.com/felttipfaerie/Launch-Into-Computing/tree/master/coursework/final
+
 # --------------------------------------------------
 # added to allow for data import
 # --------------------------------------------------

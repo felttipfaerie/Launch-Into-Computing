@@ -1,4 +1,5 @@
 # clean_names.py
+# all code can be found at: https://github.com/felttipfaerie/Launch-Into-Computing/tree/master/coursework/final
 
 def process_names(names):
     unique_names = list(set(names))  # removes duplicates but doesn't preserve order
