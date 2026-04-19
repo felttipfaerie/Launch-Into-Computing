@@ -1,5 +1,5 @@
 // cleanNames-light-edits.js
-
+// all code can be found at: https://github.com/felttipfaerie/Launch-Into-Computing/tree/master/coursework/final
 function isValidName(name) {
     return /^(?=.*\p{L})[\p{L}\p{M}\s'-]+$/u.test(name);
 } //handels names with letters, spaces, hyphens, and apostrophes, and ensures that there is at least one letter in the name. It also supports names from various languages by using Unicode property escapes.

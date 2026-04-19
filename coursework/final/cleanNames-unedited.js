@@ -1,4 +1,5 @@
 // cleanNames.js
+// all code can be found at: https://github.com/felttipfaerie/Launch-Into-Computing/tree/master/coursework/final
 
 function processNames(names) {
     let uniqueNames = [...new Set(names)]; // removes duplicates
