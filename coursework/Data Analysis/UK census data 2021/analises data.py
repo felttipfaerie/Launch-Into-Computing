@@ -1,10 +1,11 @@
+from pathlib import Path
 import pandas as pd
 
 # --------------------------------------------------
 # LOAD DATASET
 # --------------------------------------------------
 
-file_path = r"C:\Users\elmak\Documents\Launch Into Computing\coursework\UK census data 2021\combined_census_data_clean.csv"
+file_path = Path(__file__).parent / "combined_census_data_clean.csv"
 
 df = pd.read_csv(file_path)
 
