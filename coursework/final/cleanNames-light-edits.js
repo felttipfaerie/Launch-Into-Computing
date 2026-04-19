@@ -1,3 +1,5 @@
+// cleanNames-light-edits.js
+
 function isValidName(name) {
     return /^(?=.*\p{L})[\p{L}\p{M}\s'-]+$/u.test(name);
 } //handels names with letters, spaces, hyphens, and apostrophes, and ensures that there is at least one letter in the name. It also supports names from various languages by using Unicode property escapes.
@@ -9,9 +11,9 @@ function printInvalidNames(names) {
 
 function processNames(names) {
     const lowercasedNames = names.map(name => name.toLowerCase()); // added lowercase to ensure consistent capitalisation and prevent duplicates
-    // const added prevent overrighting
+    // const added to prevent overwriting
     const validNames = lowercasedNames.filter(isValidName); // filters out invalid names
-    const uniqueNames = [...new Set(validNames)]; // const added prevent overrighting
+    const uniqueNames = [...new Set(validNames)]; // const added to prevent overwriting
     uniqueNames.sort();
     return uniqueNames;
 }

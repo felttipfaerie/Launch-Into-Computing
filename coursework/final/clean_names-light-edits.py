@@ -1,4 +1,4 @@
-# clean_names.py
+# clean_names-light-edits.py
 
 import re
 
